@@ -216,10 +216,10 @@ Badmin: 'Bot Harus Jadi Admin Kalo Mau Menggunakan Fiturnya',
         if (new Date() * 1 - settingstatus > 1000) {
         let _uptime = process.uptime() * 1000;
         let uptimer = clockString(_uptime);
-        await Ryuu.setStatus(`KAGUYA-BOT V3 | ⏰${uptimer}`).catch((_) => _);
+        await Ryuu.setStatus(`Botchel V3 | ⏰${uptimer}`).catch((_) => _);
         settingstatus = new Date() * 1;
         }}
-        const troli =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 2022, status: 200, thumbnail: fakeRyuu, surface: 200, message: `Made By ${ownername}`, orderTitle: 'BAYU OFC', sellerJid: '0@s.whatsapp.net'} } }        
+        const troli =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 2022, status: 200, thumbnail: fakeRyuu, surface: 200, message: `Made By ${ownername}`, orderTitle: 'Fiannsaa', sellerJid: '0@s.whatsapp.net'} } }        
 //═════════[ VERIFY ]══════════//
 const getRegisteredRandomId = () => {
 return _registered[Math.floor(Math.random() * _registered.length)].id
@@ -290,7 +290,7 @@ return crypto.randomBytes(size).toString('hex').slice(0, size)
 }
 //═════════[ Button ]══════════//
 const katalog = (teks) => {
-             res = Ryuu.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© BAYU OFC_*", "thumbnail": thumb, "surface": 'CATALOG' }}, {quoted:troli})
+             res = Ryuu.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Fiannsaa_*", "thumbnail": thumb, "surface": 'CATALOG' }}, {quoted:troli})
              Ryuu.relayWAMessage(res)}       
              
 const fdoc = {
@@ -812,7 +812,7 @@ case 'self':
             {
               "title": "SOURCE CODE [💻]",
               "rowId": `${prefix}sc`, 
-              "description": `Menampilkan Script Bot KAGUYA-BOT`
+              "description": `Menampilkan Script Bot Botchel`
             },
             {
               "title": "BIG THANKS TO [🏆]",
@@ -1189,12 +1189,12 @@ menu =
 ╰─⬣
 
 ╭─⬣「 𝗧𝗛𝗔𝗡𝗞𝗦 𝗧𝗢 」⬣
-│✾ BAYU OFC
-│✾ Kaguya-Bot
+│✾ Fiannsaa
+│✾ Botchel
 │✾ Baileys
-╰─⬣「 KAGUYA-BOT 3.0.0 」⬣`
+╰─⬣「 BOTCHEL 3.0.0 」⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 but = [{buttonId: `${prefix}script`,buttonText: {displayText: `SCRIPT 💻`,},type: 1}, {buttonId: `${prefix}listmenu`,buttonText: {displayText: `LIST MENU 💌`,},type: 1,},]
  sendButton(from, menu, teks, but, {quoted: ftrol})
@@ -1209,7 +1209,7 @@ menu =
 ╰─⬣
 Scan QR di atas bila pengguna Dana`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: dona, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1243,7 +1243,7 @@ menu =
 │✾ ${prefix}ngazab
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1296,7 +1296,7 @@ menu =
 │✾ ${prefix}horrorblood *teks*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1339,7 +1339,7 @@ menu =
 │✾ ${prefix}wallpaper
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1380,7 +1380,7 @@ menu =
 │✾ ${prefix}resetlinkgrup
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1417,7 +1417,7 @@ menu =
 │✾ ${prefix}lirik *search*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1448,7 +1448,7 @@ menu =
 │✾ ${prefix}asupanrika
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1479,7 +1479,7 @@ menu =
 │✾ ${prefix}cecanchina
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1507,7 +1507,7 @@ menu =
 │✾ ${prefix}attp
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1537,7 +1537,7 @@ menu =
 │✾ ${prefix}listsurah
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1568,7 +1568,7 @@ menu =
 │✾ ${prefix}self
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1756,7 +1756,7 @@ menu =
 │✾ ${prefix}truth
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1790,7 +1790,7 @@ menu =
 │✾ ${prefix}nekopoi9
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1819,7 +1819,7 @@ menu =
 │✾ ${prefix}reverse *reply video*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1861,7 +1861,7 @@ menu =
 │✾ ${prefix}sound18
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1881,7 +1881,7 @@ menu =
 │✾ 𝙂𝙧𝙤𝙪𝙥 : https://chat.whatsapp.com/Gj0kHatV2AoFyL2WyTTv2o
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1916,7 +1916,7 @@ menu =
 │✾ ${prefix}nekopoisearch *search*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -1966,7 +1966,7 @@ menu =
 │✾ ${prefix}battlefield4 *text1 text2*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -2019,7 +2019,7 @@ menu =
 │✾ ${prefix}silverplaybutton *teks*
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -2029,12 +2029,12 @@ case 'tqto':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =
 `╭─⬣「 𝗧𝗛𝗔𝗡𝗞𝗦 𝗧𝗢 」⬣
-│✾ BAYU OFC
-│✾ KAGUYA-BOT
+│✾ Fiannsaa
+│✾ Botchel
 │✾ BAILEYS
 ╰─⬣`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 man = fs.readFileSync('./assets/tabun.mp3');
@@ -2072,7 +2072,7 @@ menu =
 ✾ *Permanen : 15.000 ( 15K )*
 ✾ *Join Murid Bot : 20.000 ( 20K )*`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
@@ -2082,11 +2082,11 @@ case 'infosc':
 case 'info':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu = 
-`𝐒𝐜𝐫𝐢𝐩𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 𝐁𝐀𝐘𝐔 𝐎𝐅𝐂
+`𝐒𝐜𝐫𝐢𝐩𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 𝐅𝐢𝐚𝐧𝐧𝐬𝐚𝐚
 𝐁𝐚𝐬𝐞 : 
 𝐑𝐞𝐜𝐨𝐝𝐞 :`
 teks =
-`KAGUYA-BOT 3.0.0 | Create By BAYU OFC
+`Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
@@ -2277,7 +2277,7 @@ case 'blackpink':
                     case 'summersand':
                     case 'horrorblood':
                     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-                    if (args.length == 0) return reply(`Example: ${prefix + command} BAYU OFC`)
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Fiannsaa`)
                     ini_txt = args.join(" ")
                     ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/textprome/${command}?apikey=${lolkey}&text=${ini_txt}`)
                     Ryuu.sendMessage(from, ini_buffer, image, { quoted: troli})
@@ -2741,98 +2741,98 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/vietnam?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanmalaysia':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/malaysia?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecankorea':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/korea?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanindonesia':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/indonesia?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanjapan':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/japan?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanthailand':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/thailand?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanchina':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/china?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupancecan':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/cecan?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanhijaber':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/hijaber?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
-Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupansantuy':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/santuy?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
-Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanukhti':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/ukty?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
-Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanbocil':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/bocil?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
-Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanghea':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/ghea?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
-Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanrika':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/rikagusriani?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
-Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : BAYU OFC'})
+Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 //══════════[ Fitur Nfsw ]══════════//
 case 'awoo':
@@ -2845,7 +2845,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
           reply(mess.wait)
           anu = await fetchJson(`https://waifu.pics/api/sfw/${command}`)
           kon = await getBuffer(anu.url)
-          pll = `Nih Jangan Lupa Subscribe YT : BAYU OFC`
+          pll = `Nih Jangan Lupa Subscribe YT : Fiannsaa`
    sendButImage(from, pll, `*_Next to continue..!!_*`, kon, [                      
           {
             buttonId: `${prefix}${command}`,
@@ -2875,7 +2875,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
           reply(mess.wait)
           anu = await fetchJson(`https://nekos.life/api/v2/img/${command}`)
           kon = await getBuffer(anu.url)
-          pll = `Nih Jangan Lupa Subscribe YT : BAYU OFC`
+          pll = `Nih Jangan Lupa Subscribe YT : Fiannsaa`
    sendButImage(from, pll, `*_Next to continue..!!_*`, kon, [                      
           {
             buttonId: `${prefix}${command}`,
@@ -2893,7 +2893,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
           reply(mess.wait)
           anu = await fetchJson(`https://waifu.pics/api/nsfw/trap`)
           kon = await getBuffer(anu.url)
-          pll = `Nih Jangan Lupa Subscribe YT : BAYU OFC`
+          pll = `Nih Jangan Lupa Subscribe YT : Fiannsaa`
    sendButImage(from, pll, `*_Next to continue..!!_*`, kon, [                      
           {
             buttonId: `${prefix}${command}`,
@@ -2911,7 +2911,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
           reply(mess.wait)
           anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
           kon = await getBuffer(anu.url)
-          pll = `Nih Jangan Lupa Subscribe YT : BAYU OFC`
+          pll = `Nih Jangan Lupa Subscribe YT : Fiannsaa`
    sendButImage(from, pll, `*_Next to continue..!!_*`, kon, [                      
           {
             buttonId: `${prefix}hentai2`,
@@ -2929,7 +2929,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
           reply(mess.wait)
           anu = await fetchJson(`https://waifu.pics/api/nsfw/waifu`)
           kon = await getBuffer(anu.url)
-          pll = `Nih Jangan Lupa Subscribe YT : BAYU OFC`
+          pll = `Nih Jangan Lupa Subscribe YT : Fiannsaa`
    sendButImage(from, pll, `*_Next to continue..!!_*`, kon, [                      
           {
             buttonId: `${prefix}hentai`,
@@ -3037,7 +3037,7 @@ fs.unlinkSync(ran)
 break
 case 'ttp':  
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-                    if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp BAYU OFC`)
+                    if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp Fiannsaa`)
                     anu1 = await getBuffer(`https://api.xteam.xyz/ttp?file&text=${c}`)
                     Ryuu.sendMessage(from, anu1, image, {quoted: mek, caption : `${prefix}sticker`})
                     break
@@ -3331,7 +3331,7 @@ case 'darkjokes':
       case 'sound1':
       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
       menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound1.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3339,7 +3339,7 @@ break
 case 'sound2':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound2.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3347,7 +3347,7 @@ break
 case 'sound3':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound3.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3355,7 +3355,7 @@ break
 case 'sound4':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound4.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3363,7 +3363,7 @@ break
 case 'sound5':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound5.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3371,7 +3371,7 @@ break
 case 'sound6':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound6.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3379,7 +3379,7 @@ break
 case 'sound7':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound7.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3387,7 +3387,7 @@ break
 case 'sound8':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound8.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3395,7 +3395,7 @@ break
 case 'sound9':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound9.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3403,7 +3403,7 @@ break
 case 'sound10':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound10.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3411,7 +3411,7 @@ break
 case 'sound11':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound11.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3419,7 +3419,7 @@ break
 case 'sound12':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound12.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3427,7 +3427,7 @@ break
 case 'sound13':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound13.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3435,7 +3435,7 @@ break
 case 'sound14':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound14.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3443,7 +3443,7 @@ break
 case 'sound15':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound15.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3451,7 +3451,7 @@ break
 case 'sound16':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound16.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3459,7 +3459,7 @@ break
 case 'sound17':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound17.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3467,7 +3467,7 @@ break
 case 'sound18':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =`Tunggu Beberapa Detik Ya Kak..`
-      teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+      teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
       man = fs.readFileSync('./assets/sound18.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
@@ -3827,7 +3827,7 @@ Ryuu.sendMessage(from, {displayName: `Ownernya ${botname}`, vcard: vcard2}, cont
 { quoted: troli, 
 })
 menu = `Itu Owner ku kak mau nanya soal apa yaa..`
- teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+ teks =`Botchel 3.0.0 | Create By Fiannsaa`
  but = [{buttonId: `${prefix}script`,buttonText: {displayText: `SCRIPT ️💻`,},type: 1}, {buttonId: `${prefix}listmenu`,buttonText: {displayText: `LIST MENU 💌`,},type: 1,},]
  sendButton(from, menu, teks, but, {quoted: ftrol})
  break
@@ -3839,15 +3839,15 @@ members_ids.push(mem.jid)
 }
 vcard3 = 'BEGIN:VCARD\n'
 + 'VERSION:3.0\n'
-+ `FN:BAYU OFC\n`
-+ `ORG: Creator KAGUYA-BOT ;\n`
++ `FN:Fiannsaa\n`
++ `ORG: Creator Botchel ;\n`
 + `TEL;type=CELL;type=VOICE;waid=6283891921787:6283891921787\n`
 + 'END:VCARD'.trim()
 Ryuu.sendMessage(from, {displayName: `Creatornya ${botname}`, vcard: vcard3}, contact, 
 { quoted: troli, 
 })
 menu = `Itu Creator ku kak mau nanya soal apa yaa..`
- teks =`KAGUYA-BOT 3.0.0 | Create By BAYU OFC`
+ teks =`Botchel 3.0.0 | Create By Fiannsaa`
  but = [{buttonId: `${prefix}script`,buttonText: {displayText: `SCRIPT 💻`,},type: 1}, {buttonId: `${prefix}listmenu`,buttonText: {displayText: `LIST MENU 💌`,},type: 1,},]
  sendButton(from, menu, teks, but, {quoted: ftrol})
  break

