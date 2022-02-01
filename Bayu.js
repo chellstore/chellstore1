@@ -1683,14 +1683,65 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                  ]
             sendButLocation(from, mobilelegend(prefix), fake, imgml, but)
             break
-    case 'ff': case 'freefire': case 'epep':
+    case 'js': case 'jashare':
     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-            imgff = fs.readFileSync('./shop/imgshop/freefire.jpeg')
+            imgff = fs.readFileSync('./shop/imgshop/qris.jpeg')
             but = [
-            { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
+            { buttonId: `${prefix}format`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
                  ]
             sendButLocation(from, ff(prefix), fake, imgff, but)
             break
+            
+            case 'js':
+case 'jasashare':
+        ptod = "62896465831949@s.whatsapp.net"
+        stod = `${sender}`
+        uwu = '```'
+       stst = await pemuda.getStatus(`${sender.split('@')[0]}@c.us`)
+				stst = stst.status == 401 ? '' : stst.status
+			
+       menu = `🇯‌🇦‌🇸‌🇦‌ 🇸‌🇭‌🇦‌🇷‌🇪‌ 🇴‌🇵‌🇧‌🇷‌
+       
+*☁️ ֙ 𖥻 Chellstore*
+▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌
+
+*- 🌸 ⍴ᥲkᥱ𝗍 100 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 1.000
+ꉂ🍨2× sһᥲrᥱ = 2.000
+ꉂ🍨3× sһᥲrᥱ = 3.000
+
+*- 🌸 ⍴ᥲkᥱ𝗍 200 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 2.000
+ꉂ🍨2× sһᥲrᥱ = 4.000
+ꉂ🍨3× sһᥲrᥱ = 6.000
+
+*- 🌸 ⍴ᥲkᥱ𝗍 300 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 3.000
+ꉂ🍨2× sһᥲrᥱ = 6.000
+ꉂ🍨3× sһᥲrᥱ = 9.000
+
+*- 🌸 ⍴ᥲᥡmᥱᥒ𝗍*
+ꉂ🍨g᥆⍴ᥲᥡ
+ꉂ🍨ძᥲᥒᥲ
+ꉂ🍨𝗊rіs ᥲᥣᥣ ⍴ᥲᥡmᥱᥒ𝗍
+
+*- 👥 gr᥆ᥙ⍴*
+https://chat.whatsapp.com/BlVcfdhCyzz8iWaDvSDKd1
+
+*- 📞 ᥴ᥆ᥒ𝗍ᥲᥴ𝗍*
+https://wa.me/62896465831949
+
+*- 🛡️ 𝗍ᥱs𝗍іm᥆ᥒі*
+https://instagram.com/chelllstore?utm_medium=copy_link
+
+
+(ᥒ) ȷᥲsᥲ sһᥲrᥱ ᑲᥱrᥙ⍴ᥲ 𝗍ᥱks/ᥣіs𝗍, 𝗍іძᥲk mᥱᥒᥱrіmᥲ gᥲmᑲᥲr ᥲ𝗍ᥲᥙ 𝖿᥆𝗍᥆.
+
+*║▌│█║▌│ █║▌│█│║▌*
+*www.cɦɛʟʟsȶօʀɛ.com*`
+       sendButLocation(from, `${menu}`, `${uwu}NoCopas${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}payment`,buttonText:{displayText:'PAYMENT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+break
+
       case 'formatorder': case 'format':
       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
             Ryuu.sendMessage(from, format(prefix), MessageType.text, {quoted: mek})

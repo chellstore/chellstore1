@@ -1683,9 +1683,9 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                  ]
             sendButLocation(from, mobilelegend(prefix), fake, imgml, but)
             break
-    case 'ff': case 'freefire': case 'epep':
+    case 'js': case 'jashare':
     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-            imgff = fs.readFileSync('./shop/imgshop/freefire.jpeg')
+            imgff = fs.readFileSync('./shop/imgshop/qris.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
                  ]
@@ -2082,7 +2082,7 @@ case 'infosc':
 case 'info':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu = 
-`𝐒𝐜𝐫𝐢𝐩𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 𝐁𝐀𝐘𝐔 𝐎𝐅𝐂
+`𝐒𝐜𝐫𝐢𝐩𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 𝐅𝐢𝐚𝐧𝐧𝐬𝐚𝐚
 𝐁𝐚𝐬𝐞 : 
 𝐑𝐞𝐜𝐨𝐝𝐞 :`
 teks =
