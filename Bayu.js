@@ -220,74 +220,7 @@ Badmin: 'Bot Harus Jadi Admin Kalo Mau Menggunakan Fiturnya',
         settingstatus = new Date() * 1;
         }}
         const troli =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 2022, status: 200, thumbnail: fakeRyuu, surface: 200, message: `Made By ${ownername}`, orderTitle: 'Fiannsaa', sellerJid: '0@s.whatsapp.net'} } }        
-//═════════[ VERIFY ]══════════//
-const getRegisteredRandomId = () => {
-return _registered[Math.floor(Math.random() * _registered.length)].id
-}
-const addRegisteredUser = (userid, sender, age, time, serials) => {
-const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
-_registered.push(obj)
-fs.writeFileSync('./database/registered.json', JSON.stringify(_registered))
-}
-const checkRegisteredUser = (sender) => {
-let status = false
-Object.keys(_registered).forEach((i) => {
-if (_registered[i].id === sender) {
-status = true
-}
-})
-return status
-}
-const cekUser = (sender) => {
-	let status = false
-	Object.keys(_user).forEach((i) => {
-		if (_user[i].id === sender) {
-			status = true
-			}
-			})
-			return status
-			}
-			const isUser = cekUser(sender)
-			
-const isRegistered = checkRegisteredUser(sender)
 
-const sendButRegis = (id, text1, desc1, but = [], options = {}) => {
-const buttonMessage = {
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 1,
-};
-Ryuu.sendMessage(
-id,
-buttonMessage,
-MessageType.buttonsMessage,
-options
-);
-};
-
-const daftar1 = `*Hai kak  ${pushname} 👋*\n\n*Sebelum Mengakses Bot Silahkan Daftar Dulu Tod*`
-const daftar2 = '```Ketik #daftar Atau Klik Tombol Di Bawah Untuk Verify Kak```'
-const daftar3 = [{buttonId: `${prefix}verify`,buttonText: {displayText: `🥀 VERIFY 🥀 `,},type: 1,},]
-
-const sendButPrem = (id, text1, desc1, but = [], options = {}) => {
-const buttonMessage = {
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 1,
-};
-Ryuu.sendMessage(
-id,
-buttonMessage,
-MessageType.buttonsMessage,
-options
-);
-};
-
-const createSerial = (size) => {
-return crypto.randomBytes(size).toString('hex').slice(0, size)
-}
 //═════════[ Button ]══════════//
 const katalog = (teks) => {
              res = Ryuu.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Fiannsaa_*", "thumbnail": thumb, "surface": 'CATALOG' }}, {quoted:troli})
@@ -629,29 +562,7 @@ switch (command) {
 
 //══════════[ FITUR FITUR OY ]══════════//  
 
-case 'verify': case 'daftar':
-if (isUser) return reply('Kamu sudah terdaftar di dalam database')
-const serialUser = createSerial(18)
-veri = sender
-_registered.push(sender)
-addRegisterUser(sender, pushname, bio_user, timeWib, serialUser)
-fs.writeFileSync('./database/registered.json', JSON.stringify(_user))
-teks = `╭─⬣ *Verification* ⬣\n│📛 *Nama :* ${pushname}\n│#️⃣ *Nomor :* @${sender.split('@')[0]}\n│💌 *Bio :* ${bio_user}\n│🖼 *serial :* ${serialUser}\n│⏰ *Time :* ${timeWib} Wib\n╰⬣`
-										let papako = [{
-											"buttonId": `${prefix}menu`,
-											"buttonText": {
-												"displayText": "MENU"
-												},
-												"type": "RESPONSE"
-												},{
-													"buttonId": `${owner}`,
-													"buttonText": {
-														"displayText": "OWNER"
-														},
-														"type": "RESPONSE"
-													}]
-											sendButLocation(from, teks , `Thank for verification 💋\n${botname}™© | By ${ownername}`, tamnel, papako, {contextInfo: { mentionedJid: [sender]}})
-									break
+
 case 'mode':
 if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner) 
 buttonss = [{buttonId: `${prefix}public`, buttonText: {displayText: 'PUBLIC👥'}, type: 1},{buttonId: `${prefix}self`, buttonText: {displayText: 'SELF👤'}, type: 1}]
@@ -678,7 +589,7 @@ case 'self':
       case 'menu':
       case 'listmenu':
       case 'help':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli}) 
+       
             stod = `${sender}`
       stst = await Ryuu.getStatus(`${sender.split('@')[0]}@c.us`)
 	  stst = stst.status == 401 ? '' : stst.status
@@ -831,7 +742,7 @@ case 'self':
             Ryuu.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [sender]},quoted:troli})
             break
 case 'allmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 const modee = public ? 'PUBLIC': 'SELF'
 menu =
 `*Hai @${sender.split('@')[0]} ${jams}*
@@ -1200,7 +1111,7 @@ but = [{buttonId: `${prefix}script`,buttonText: {displayText: `SCRIPT 💻`,},ty
  sendButton(from, menu, teks, but, {quoted: ftrol})
  break
 case 'donasi':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `╭─⬣ 「 𝗗𝗢𝗡𝗔𝗦𝗜 」⬣
 │✾ 𝘿𝙖𝙣𝙖 : ${dana}
@@ -1215,7 +1126,7 @@ Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons:
 man = fs.readFileSync('./assets/tabun.mp3');
 break
 case 'warmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]} ${jams}*
 
@@ -1250,7 +1161,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'textpromemenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]} ${jams}*
 
@@ -1303,7 +1214,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'nsfwmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1346,7 +1257,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'grupmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1387,7 +1298,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'downloadmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1424,7 +1335,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'asupanmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1455,7 +1366,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'cecanmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1486,7 +1397,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'stickermenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1514,7 +1425,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'islamimenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1544,7 +1455,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'ownermenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1575,7 +1486,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'storemenu': case 'store':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
             listMsg = {
             buttonText: 'KLIK DISINI 👋',
             footerText: fake,
@@ -1627,7 +1538,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             Ryuu.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [sender]},quoted:troli})
             break
       case 'allpayment':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+      
             sorce = fs.readFileSync('./shop/imgshop/allpayment.jpg')
             but = [
             { buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU🏘️' }, type: 1 },
@@ -1635,7 +1546,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             sendButLocation(from, allpayment(prefix), fake, sorce, but)
             break
       case 'aov':
-     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli}) 
+      
             imgaov = fs.readFileSync('./shop/imgshop/aov.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋🏽‍♂️' }, type: 1 }
@@ -1644,7 +1555,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             break
       case 'valorant':
       case 'valo':
-    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})  
+      
             imgepep = fs.readFileSync('./shop/imgshop/valo.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋🏼‍♂️' }, type: 1 },
@@ -1652,7 +1563,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             sendButLocation(from, valo(prefix), fake, imgepep, but)
             break
      case 'cod':
-    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli}) 
+     
             imgpubg = fs.readFileSync('./shop/imgshop/cod.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋🏻‍♂️' }, type: 1 },
@@ -1660,7 +1571,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             sendButLocation(from, cod(prefix), fake, imgpubg, but)
             break
      case 'sausage':
-     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+     
             imgsosis = fs.readFileSync('./shop/imgshop/sausage.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
@@ -1668,7 +1579,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             sendButLocation(from, sausage(prefix), fake, imgsosis, but)
             break
       case 'lol':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+      
             imglol = fs.readFileSync('./shop/imgshop/lol.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
@@ -1676,7 +1587,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             sendButLocation(from, lol(prefix), fake, imglol, but)
             break
      case 'ml': case 'mobilelegend':
-     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+     
             imgml = fs.readFileSync('./shop/imgshop/mobilelegend.jpeg')
             but = [
             { buttonId: `${prefix}formatorder`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
@@ -1688,11 +1599,11 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             
 
       case 'formatorder': case 'format':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+      
             Ryuu.sendMessage(from, format(prefix), MessageType.text, {quoted: mek})
             break
             case 'proses':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})      
+            
 					const prosess = body.slice(8)
 					if (args.length > 300) return Ryuu.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: mek})
 					stod = `${sender}`
@@ -1706,7 +1617,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 					break
 break
 case 'done':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isOwner) return reply(mess.only.owner) 
 menu =
 `_Done All Trx No Reff_
@@ -1717,7 +1628,7 @@ menu =
 reply(menu) 
 break
 case 'funmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1759,7 +1670,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'nekopoimenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1793,7 +1704,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'audiomenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1822,7 +1733,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'soundmenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1864,7 +1775,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'rules':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `╭─⬣「 𝗥𝗨𝗟𝗘𝗦 」⬣
 │✾ DiLarang Spam Saat Menggunakan bot.
@@ -1884,7 +1795,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'animemenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1919,7 +1830,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'potooxymenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -1969,7 +1880,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'ephotomenu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*Hai @${sender.split('@')[0]}*
 
@@ -2022,7 +1933,7 @@ man = fs.readFileSync('./assets/tabun.mp3');
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'tqto':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `╭─⬣「 𝗧𝗛𝗔𝗡𝗞𝗦 𝗧𝗢 」⬣
 │✾ Fiannsaa
@@ -2038,14 +1949,14 @@ Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp
 break
 case 'ping':
           case 'speed':
-          if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+          
               timestampe = speed();
               latensie = speed() - timestampe
               fakestatus(`「 *𝙎𝙋𝙀𝙀𝘿 𝙏𝙀𝙎𝙏* 」\nMerespon dalam ${latensie.toFixed(4)} Sec 💬`)
               break
               case 'report':
 case 'lapor': 
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 					const laporan = body.slice(7)
 					if (args.length > 300) return Ryuu.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: mek})
 					stod = `${sender}`
@@ -2117,7 +2028,7 @@ break
 					
 case 'js':
 case 'jashare':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*${jams} @${sender.split('@')[0]}*
 🇯‌🇦‌🇸‌🇭‌🇦‌🇷‌🇪‌  🇴‌🇵‌🇧‌🇷‌
@@ -2167,7 +2078,7 @@ break
 
 case 'pay':
 case 'payment':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =
 `*${jams} @${sender.split('@')[0]}*
 Untuk payment silahkan klik tombol di bawah`
@@ -2182,7 +2093,7 @@ case 'sc':
 case 'script':
 case 'infosc':
 case 'info':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu = 
 `𝐒𝐜𝐫𝐢𝐩𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 𝐅𝐢𝐚𝐧𝐧𝐬𝐚𝐚
 𝐁𝐚𝐬𝐞 : 
@@ -2194,71 +2105,107 @@ Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons:
 break
 //══════════[ NEKOPOI MENU ]══════════//
 case 'nekopoi1':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www2.zippyshare.com/d/z9dcY6Nr/791216/%5bNekoPoi%5d_Akina_to_Onsen_de_H_Shiyo%5b360P%5d%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi2':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www4.zippyshare.com/d/j7PFLGUY/946757/%5bNekoPoi%5d_Tsuma_ga_Kirei_ni_Natta_Wake_-_02_%5b360P%5d_%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi3':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www111.zippyshare.com/d/EK5uqIMh/566060/%5bNekoPoi%5d_Megane_no_Megami_-_01_%5b360P%5d_%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi4':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www109.zippyshare.com/d/2ebALhhS/463654/%5bNekoPoi%5d_Watashi_ga_Toriko_-_02%5b360P%5d%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi5':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www115.zippyshare.com/d/LmzOkRAI/313299/%5bNekoPoi%5d_Chichi-iro_Toiki_-_01_%5b360P%5d%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi6':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www89.zippyshare.com/d/SgEHvrJs/42812/%5bNekoPoi%5d_Chichi-iro_Toiki_-_02_%5b360P%5d%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi7':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www66.zippyshare.com/d/j0ivbciL/520411/%5bNekoPoi%5d_Onna_Maou_Melissa_no_H_na_Boukenki_-_01_%5b360P%5d_%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi8':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www71.zippyshare.com/d/M225YIrR/535656/%5bNekoPoi%5d_Buta_no_Gotoki_Sanzoku_ni_Torawarete_Shojo_wo_Ubawareru_Kyonyuu_Himekishi_Onna_Senshi_-_01%5b360P%5d%5bnekopoi.care%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
                  case 'nekopoi9':
-                 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                 
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www49.zippyshare.com/d/bdwYjaXS/605790/%5bNekoPoi%5d_Akebi_no_Hana___Maho_-_01_%5b360P%5d_%5bnekopoi.pro%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
+                                      // Random Text //
+                case 'quotes':
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotes?apikey=${lolkey}`)
+                    quotes = quotes.result
+                    author = quotes.by
+                    quotes = quotes.quote
+                    reply(`_${quotes}_\n\n*― ${author}*`)
+                    break
+                case 'quotesanime':
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${lolkey}`)
+                    quotes = quotes.result
+                    quote = quotes.quote
+                    char = quotes.character
+                    anime = quotes.anime
+                    episode = quotes.episode
+                    reply(`_${quote}_\n\n*― ${char}*\n*― ${anime} ${episode}*`)
+                    break
+                case 'quotesdilan':
+                    quotedilan = await fetchJson(`https://api.lolhuman.xyz/api/quotes/dilan?apikey=${lolkey}`)
+                    reply(quotedilan.result)
+                    break
+                case 'quotesimage':
+                    get_result = await getBuffer(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`)
+                    await Ryuu.sendMessage(from, get_result, image, { quotes: lol })
+                    break
+                case 'faktaunik':
+                case 'katabijak':
+                case 'pantun':
+                case 'bucin':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`)
+                    reply(get_result.result)
+                    break
+                case 'randomnama':
+                    anu = await fetchJson(`https://api.lolhuman.xyz/api/random/nama?apikey=${lolkey}`)
+                    reply(anu.result)
+                    break
 //══════════[ Fitur Islam ]══════════//
 case 'listsurah':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 				reply(mess.wait) 
        get_result = await fetchJson(`http://api.lolhuman.xyz/api/quran?apikey=${lolkey}`)
        get_result = get_result.result
@@ -2269,7 +2216,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
        reply(ini_txt)
        break
    case 'alquran':
-   if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+   
 				reply(mess.wait) 
        if (args.length < 1) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`)
        urls = `http://api.lolhuman.xyz/api/quran/${args[0]}?apikey=${lolkey}`
@@ -2290,7 +2237,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
        reply(ini_txt)
        break
    case 'alquranaudio':
-   if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+   
 				reply(mess.wait) 
        if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
        surah = args[0]
@@ -2298,7 +2245,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
        Ryuu.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })
        break
    case 'asmaulhusna':
-   if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+   
 				reply(mess.wait) 
        get_result = await fetchJson(`http://api.lolhuman.xyz/api/asmaulhusna?apikey=${lolkey}`)
        get_result = get_result.result
@@ -2310,7 +2257,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
        reply(ini_txt)
        break
    case 'kisahnabi':
-   if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+   
 				reply(mess.wait) 
        if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
        query = args.join(" ")
@@ -2325,7 +2272,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
        break
 
 case 'jadwalsholat':	
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 				reply(mess.wait) 
       try {
         if (args.length == 0) return reply(`Example: ${prefix + command} Pasuruan`)
@@ -2378,7 +2325,7 @@ case 'blackpink':
                     case 'cloud':
                     case 'summersand':
                     case 'horrorblood':
-                    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                    
                     if (args.length == 0) return reply(`Example: ${prefix + command} Fiannsaa`)
                     ini_txt = args.join(" ")
                     ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/textprome/${command}?apikey=${lolkey}&text=${ini_txt}`)
@@ -2413,7 +2360,7 @@ case 'blackpink':
                 case 'birthdayday':
                 case 'goldplaybutton':
                 case 'silverplaybutton':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
                     ini_txt = args.join(" ")
                     getBuffer(`https://api.lolhuman.xyz/api/ephoto1/${command}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
@@ -2444,7 +2391,7 @@ case 'blackpink':
                 case 'flamming':
                 case 'harrypotter':
                 case 'carvedwood':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
                     ini_txt = args.join(" ")
                     getBuffer(`https://api.lolhuman.xyz/api/photooxy1/${command}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
@@ -2452,7 +2399,7 @@ case 'blackpink':
                     })
                     break
                     case 'character':
-                    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                    
                     if (args.length == 0) return reply(`Example: ${prefix + command} Miku Nakano`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/character?apikey=${lolkey}&query=${query}`)
@@ -2471,7 +2418,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'manga':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${lolkey}&query=${query}`)
@@ -2501,7 +2448,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'anime':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${lolkey}&query=${query}`)
@@ -2533,7 +2480,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'kusonime':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://kusonime.com/nanatsu-no-taizai-bd-batch-subtitle-indonesia/`)
                     ini_url = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonime?apikey=${lolkey}&url=${ini_url}`)
@@ -2561,7 +2508,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'kusonimesearch':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=${lolkey}&query=${query}`)
@@ -2589,7 +2536,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'otakudesu':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://otakudesu.tv/lengkap/pslcns-sub-indo/`)
                     ini_url = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesu?apikey=${lolkey}&url=${ini_url}`)
@@ -2623,7 +2570,7 @@ case 'blackpink':
                     reply(ini_txt)
                     break
                 case 'otakudesusearch':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=${lolkey}&query=${query}`)
@@ -2657,7 +2604,7 @@ case 'blackpink':
                     reply(ini_txt)
                     break                
                 case 'nhentaipdf':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
                     henid = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${lolkey}`)
@@ -2666,7 +2613,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, ini_buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
                     break
                 case 'nhentaisearch':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaisearch?apikey=${lolkey}&query=${query}`)
@@ -2684,7 +2631,7 @@ case 'blackpink':
                     reply(ini_txt)
                     break
                 case 'nekopoi':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://nekopoi.care/isekai-harem-monogatari-episode-4-subtitle-indonesia/`)
                     ini_url = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoi?apikey=${lolkey}&url=${ini_url}`)
@@ -2706,7 +2653,7 @@ case 'blackpink':
                     await Ryuu.sendMessage(from, ini_buffer, image, { quoted: mek, caption: ini_txt })
                     break
                 case 'nekopoisearch':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=${lolkey}&query=${query}`)
@@ -2721,7 +2668,7 @@ case 'blackpink':
                     break                                   
 //══════════[ Fitur Informasi ]══════════//    
 case 'kbbi':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length == 0) return reply(`Nama Yg Mau Dicari Mana Tod\nContoh: ${prefix + command} kursi`)
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/kbbi?apikey=${lolkey}&query=${args.join(" ")}`)
 lila = get_result.result
@@ -2739,7 +2686,7 @@ ini_txt += `\`\`\`Contoh Kalimat : \n${x.makna[0].contoh}\`\`\`\n`
 reply(ini_txt)
 break
 case 'jarak':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length == 0) return reply(`Nama Kotanya Mana Tod\nContoh: ${prefix + command} jakarta - yogyakarta`)
 pauls = args.join(" ")
 teks1 = pauls.split("-")[0].trim()
@@ -2765,7 +2712,7 @@ ini_txt += `   ╰───────────────❏\n`
 reply(ini_txt)
 break
 case 'wikipedia':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length == 0) return reply(`Nama Yg Mau Di Cari Mana Tod\nContoh: ${prefix + command} Tahu`)
 query = args.join(" ")
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${lolkey}&query=${query}`)
@@ -2773,7 +2720,7 @@ get_result = get_result.result
 reply(get_result)
 break
 case 'translate':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length == 0) return reply(`Teks Yg Mau Di Translate Mana Tod\nContoh: ${prefix + command} en Tahu Bacem`)
 kode_negara = args[0]
 args.shift()
@@ -2788,7 +2735,7 @@ init_txt += `Pronunciation : ${get_result.pronunciation}\n`
 reply(init_txt)
 break
 case 'infogempa':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${lolkey}`)
 get_result = get_result.result
 ini_txt = `Lokasi : ${get_result.lokasi}\n`
@@ -2801,7 +2748,7 @@ get_buffer = await getBuffer(get_result.map)
 await Ryuu.sendMessage(from, get_buffer, image, { quoted: mek, caption: ini_txt })
 break
 case 'cuaca':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length == 0) return reply(`Nama Kotanya Mana Tod\nContoh: ${prefix + command} Temanggung`)
 daerah = args[0]
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${daerah}?apikey=${lolkey}`)
@@ -2818,7 +2765,7 @@ await Ryuu.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLong
 reply(ini_txt)
 break
 case 'covidindo':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${lolkey}`)
 get_result = get_result.result
 ini_txt = `Positif : ${get_result.positif}\n`
@@ -2828,7 +2775,7 @@ ini_txt += `Meninggal : ${get_result.meninggal}`
 reply(ini_txt)
 break
 case 'covidglobal':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${lolkey}`)
 get_result = get_result.result
 ini_txt = `Positif : ${get_result.positif}\n`
@@ -2839,98 +2786,98 @@ reply(ini_txt)
 break
 //══════════[ Fitur Asupan ]══════════//
 case 'cecanvietnam':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/vietnam?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanmalaysia':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/malaysia?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecankorea':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/korea?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanindonesia':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/indonesia?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanjapan':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/japan?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanthailand':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/thailand?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'cecanchina':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/cewe/china?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupancecan':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/cecan?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanhijaber':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 huft = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/hijaber?apikey=ZeroYT7`)
 reply(mess.wait)
 goo = await getBuffer(huft.result.url)
 Ryuu.sendMessage(from, goo, image, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupansantuy':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/santuy?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
 Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanukhti':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/ukty?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
 Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanbocil':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/bocil?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
 Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanghea':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/ghea?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
 Ryuu.sendMessage(from, buffer, video, {quoted: troli, caption: 'Nih Jangan Lupa Subscribe YT : Fiannsaa'})
 break
 case 'asupanrika':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 ini = await fetchJson(`https://zeroyt7-api.herokuapp.com/api/asupan/rikagusriani?apikey=ZeroYT7`)
 reply(mess.wait)
 buffer = await getBuffer(ini.result.url)
@@ -2941,7 +2888,7 @@ case 'awoo':
 case 'megumin':
 case 'shinobu':
 case 'waifu':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
           reply(mess.wait)
@@ -2970,7 +2917,7 @@ case 'ero':
 case 'wallpaper':
 case 'hug':
 case 'solo':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isOwner && !mek.key.fromMe) return  reply(mess.only.owner)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
@@ -2989,7 +2936,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
         ]);                 
                     break
 case 'trapnime':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
           reply(mess.wait)
@@ -3007,7 +2954,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
         ]);                 
                     break  
 case 'hentai2':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
           reply(mess.wait)
@@ -3025,7 +2972,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
         ]);                 
                     break      
 case 'hentai':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return reply(mess.only.group)
 if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}nsfw 1 \nUntuk Mengaktifkan`)
           reply(mess.wait)
@@ -3043,7 +2990,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
         ]);                 
                     break
 case 'nsfw':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 	        if (!isGroup) return reply(mess.only.group)
 			if (!isOwner && !isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply(`untuk mengaktifkan ketik : ${prefix}nsfw 1`)
@@ -3070,7 +3017,7 @@ case 's':
 case 'stickergif':  
 case 'sticker':
 case 'stiker':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 const media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
@@ -3124,7 +3071,7 @@ fakeyt(`Kirim gambar dengan caption ${prefix}sticker\nDurasi Sticker Video 1-9 D
 }
 break
 case 'toimg':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isQuotedSticker) return fakeyt('reply stickernya')
 encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
@@ -3138,20 +3085,20 @@ fs.unlinkSync(ran)
 })
 break
 case 'ttp':  
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
                     if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp Fiannsaa`)
                     anu1 = await getBuffer(`https://api.xteam.xyz/ttp?file&text=${c}`)
                     Ryuu.sendMessage(from, anu1, image, {quoted: mek, caption : `${prefix}sticker`})
                     break
                     case 'attp':
-                    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-if (args.length == 0) return reply(`Example: ${prefix + command} Hai`)
-buffer = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURI(q)}`)
-Ryuu.sendMessage(from, buffer, sticker, { quoted: mek })
-break
+				if (!isGroup) return reply(mess.only.group)
+					if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp ${NamaBot}`)
+					atetepe = await getBuffer(`https://api.xteam.xyz/attp?file&text=${encodeURIComponent(c)}`)
+					pemuda.sendMessage(from, atetepe, sticker, { quoted: mek })
+					break
 //══════════[ Fitur fun]══════════//
 case 'suit':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length < 1) return reply('Pilih gunting/batu/kertas')
 if (args[0] === 'gunting' ) {
 gunting = [
@@ -3182,7 +3129,7 @@ reply('Pilih gunting/batu/kertas')
 }
 break
 case 'apakah':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
               apakah = body.slice(1)
               const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
               const kah = apa[Math.floor(Math.random() * apa.length)]
@@ -3190,7 +3137,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               break
        case 'rate':
        case 'nilai':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               rate = body.slice(1)
               const ra =['0','4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
               const te = ra[Math.floor(Math.random() * ra.length)]
@@ -3198,7 +3145,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               break
        case 'gantengcek':
        case 'cekganteng':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               ganteng = body.slice(1)
               const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
               const teng = gan[Math.floor(Math.random() * gan.length)]
@@ -3206,14 +3153,14 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               break
        case 'cantikcek':
        case 'cekcantik':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               cantik = body.slice(1)
               const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
               const tik = can[Math.floor(Math.random() * can.length)]
               Ryuu.sendMessage(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%', text, { quoted: mek })
               break
        case 'cekwatak':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               var namao = pushname
               var prfx = await Ryuu. getProfilePicture(sender)
               const watak = ['top deh pokoknya','penyayang','pemurah','Pemarah','Pemaaf','Penurut','Baik','baperan','Baik-Hati','penyabar','UwU','Suka Membantu']
@@ -3231,21 +3178,21 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               await fakestatus(`[ INTROGASI SUKSES ]\n\n[Nama]:${namao}\n\n[Watak]:${wtk}\n\n[Akhlak✨]:${akhlak}\n\n[Sifat]:${sft}\n\n[Hobby]:${hby}\n\n[Tipe]:${typo}\n\n[Kelebihan]:${klbh}\n\nNote\n\n_ini hanya main main_`)
               break
        case 'bisakah':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               bisakah = body.slice(1)
               const bisa =['Bisa','Tidak Bisa','Coba Ulangi','MANA GW TAU']
               const keh = bisa[Math.floor(Math.random() * bisa.length)]
               Ryuu.sendMessage(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh, text, { quoted: mek })
               break
        case 'kapankah':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               kapankah = body.slice(1)
               const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
               const koh = kapan[Math.floor(Math.random() * kapan.length)]
               Ryuu.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, { quoted: mek })
               break
               case 'jadian':
-              if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+              
               jds = []
               jdii = groupMembers
               koss = groupMembers
@@ -3257,7 +3204,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               mentions(teks, jds, true)
               break
        case 'cantik':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               membr = []
               const mes = groupMembers
               const msk = groupMembers
@@ -3268,7 +3215,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               mentions(teks, membr, true)
               break
        case 'ganteng':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               membr = []
               const nus = groupMembers
               const msl = groupMembers
@@ -3279,7 +3226,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               mentions(teks, membr, true)
               break
        case 'babi':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               membr = []
               const meg = groupMembers
               const mge = groupMembers
@@ -3290,7 +3237,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               mentions(teks, membr, true)
               break
        case 'beban':
-       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+       
               membr = []
               const nge = groupMembers
               const tod = groupMembers
@@ -3301,7 +3248,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
               mentions(teks, membr, true)
               break            
 			case 'slot':
-			if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+			
 									const sotoy = ['🍊 : 🍒 : 🍐','🍒 : 🍐 : 🍊','🍐 : 🍒 : 🍐','🍊 : 🍋 : 🔔','🔔 : 🍒 : 🍐','🔔 : 🍒 : 🍊','🍊 : 🍋 : 🔔','🍐 : 🍒 : 🍋','🍐 : 🍐 : 🍐','🍊 : 🍒 : 🍒','🔔 : 🔔 : 🍇 ','🍌 : 🍒 : 🔔','🍐 : 🔔 :  🔔','🍊 : 🍋 :  🍒','🍋 : 🍋 :  🍌','?? : 🔔 : 🍇','🔔 : 🍐 :  🍇','🔔 : 🔔 :  🔔','🍒 : 🍒 :  🍒','🍌 : 🍌 : 🍌','🍇 : ?? : 🍇']
 									somtoy = sotoy[Math.floor(Math.random() * (sotoy.length))]	
 									somtoyy = sotoy[Math.floor(Math.random() * (sotoy.length))]
@@ -3363,21 +3310,21 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 											}
 															break
 case 'truth':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 Ryuu.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: mek })
 break
 case 'dare':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "??💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 const der = dare[Math.floor(Math.random() * dare.length)]
 buff = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 Ryuu.sendMessage(from, buff, image, { caption: '*Dare*\n\n'+ der, quoted: mek })
 break
 case 'darkjokes':  
-     if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+     
            let data = fs.readFileSync('./lib/darkjokes.js');
 	       jsonData = JSON.parse(data);
 		   randIndex = Math.floor(Math.random() * jsonData.length);
@@ -3395,7 +3342,7 @@ case 'darkjokes':
            await Ryuu.sendMessage(from, gbuttonan, MessageType.buttonsMessage)
 		   break		
 		   case 'faktaunik':	
-		   							if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+		   							
 									const faktau = ["Negara Indonesia berada di posisi ke-4 sebagai Negara Terindah di Dunia versi situs First Choice.","Di Italia, dalam aturannya minuman Cappuccino hanya boleh di minum sebelum waktu siang.","AS, Australia, Finlandia, Jerman dan Kanada adl negara maju tanpa UN. Tahukah anda sekolah trbaik di dunia ada di Finlandia walau tanpa UN.","","\"Jengkol is very nice\" komentar Pierre Bouvier vokalis Simple Plan.","Tiap satu kali jari kita mengklik mouse komputer, ada 1,42 kalori yang terbakar dalam tubuh. (Penelitian, Convert Anything to Calories).","Di Jepang kuno, prajurit diolesi minyak kodok pada tubuh mereka dengan keyakinan bahwa hal itu akan membuat tubuh mereka antirobek."," Di Jepang, ketiduran saat bekerja (inemuri) dapat ditolerir, karena dipandang sebagai kelelahan yang muncul akibat bekerja terlalu keras.","Gergaji mekanik awalnya diciptakan sebagai alat kedokteran untuk membantu melahirkan bayi.","Jangan sering mengatakan kata  di Australia dan Selandia Baru. Di sana, kata berarti mengajak untuk melakukan hubungan seks.","Jamur merang Laetiporus dikenal sebagai julukan \"ayam hutan\" karena konon rasanya mirip seperti daging ayam goreng.","Kaki katak merupakan hidangan istimewa di eropa. Tahukah Anda: sekitar 80% impor katak Eropa berasal dari Indonesia.","Jika Anda mengetik \"do the harlem shake\" di search bar YouTube, layar akan melakukan Harlem Shake!. [Google Chrome]","Melihat melalui lubang kecil akan segera meningkatkan penglihatan Anda sementara.","YouTube menyebutkan rata-rata ada 4000 video baru Harlem Shake yang diunggah setiap hari. [Yahoo!]","Semut memiliki kuburan sendiri. Tapi tahukah anda: Gurita memiliki kebun dan suka berkebun. (wikipedia)","Coklat mengandung Theobromine, molekul organik yang dapat membantu menguatkan enamel gigi. (Penelitian dari Tulane University).","Wanita 2 kali lebih banyak menggunakan emoticon dalam pesan teks dibandingkan pria. (Penelitian di Rice University)","Biarpun Buzz Aldrin adalah orang kedua yang menginjak di bulan tetapi ia adalah orang pertama yang membuang kotoran di ruang angkasa.","Fakta unik berikutnya adalah, Psikolog mengatakan bahwa mengirim dan menerima pesan teks benar-benar dapat meningkatkan mood Anda ketika Anda merasa kesepian. (Telegraph)","Thailand merupakan satu-satunya negara di Asia Tenggara yang tidak pernah dijajah.","Musik memiliki kemampuan untuk memperbaiki kerusakan otak serta mengembalikan kenangan yang hilang. (cracked .com)"," Perasaan kesepian memicu respon yang sama di otak sebagai rasa sakit fisik. (BBCnews)","Di Cape Town, Afrika Selatan, remaja laki-laki yang memiliki gigi ompong dianggap tampan / maskulin.","Semakin pahit cokelat (tinggi zat theobromine), semakin tinggi manfaatnya. Rajin mengkonsumsi 1bar cokelat/hari dapat menyembuhkan batuk kronis.","Kata \"Mouse\" (tikus) berasal dari turunan Bahasa Sansekerta \"Mus\" yang berarti \"pencuri\".","Tidur Siang (Power Nap) trbukti menambah tinggi badan, dikrnkan saat kita tidur siang hormon pertumbuhan (Growth Hormone) lbh aktif bekerja.","Bilangan prima terbesar di dunia saat ini panjangnya 17 juta digit angka, cukup banyak untuk mengisi 28 lembar halaman pada buku novel.","Menurut sebuah studi, minum teh hijau setelah makan ikan membantu menghalangi zat Mercury yang terkandung dalam ikan memasuki aliran darah."," Memperpanjang usia handphone hingga 4 tahun dapat mengurangi dampak lingkungan sampai 40 persen. [Hasil studi di Swiss]","Duduk bersama dgn teman-teman / keluarga utk makan bersama, dpt meningkatkan kebahagiaan & membantu meringankan depresi. [ehealthnewsdaily]","Abibliophobia adalah fobia atau ketakutan terhadap kehabisan bahan bacaan.","Pada abad pertengahan di Eropa, garam sangat mahal harganya, sehingga disebut sebagai \"emas putih\".","Mengunyah permen karet dapat meningkatkan kemampuan berpikir cepat dan kewaspadaan hingga 10 persen. [Jurnal Brain and Cognition]","Wanita yang sedang stres selama kehamilannya cenderung melahirkan anak-anak yang pemarah. [Institute of Psychiatry, King College London]","","35. Disarankan supaya membeli sepatu pada sore hari. Sebab, setelah seharian berjalan, di sore hari kaki akan membesar 5-8 persen.","Musik memiliki kemampuan untuk memperbaiki kerusakan otak serta mengembalikan kenangan yang hilang. [cracked .com]","Menurut penelitian baru, usia harapan hidup anak band rata-rata lebih tinggi dibandingkan musisi yang memilih solo karir. (detikHealth)","Pulau Dewata Bali merupakan 1 dari 10 pulau paling romantis di dunia. [majalah Travel+Leisure]","Universitas di Jepang selalu melakukan upacara peringatan bagi hewan (contoh: tikus) yang mati dalam pengujian laboratorium. [web.archive .org]","Berkedip memberikan otak Anda istirahat sebentar. [para ilmuan di Japan’s Osaka University]","Wanita yang bahagia dalam sebuah pernikahan akan mengalami berat badan naik setengah pound (0,22 kg) setiap 6 bulan. [DailyMail]","Rasa cemburu berlebihan bisa digolongkan penyakit jiwa, krna dpt mendorong ssorg utk bunuh diri / menghabisi nyawa org lain. [riset]","","Mengkonsumsi buah tomat beberapa kali dlm kurun waktu seminggu dpt mengatasi perasaan depresi. [peneliti di Tianjin Medical Univ., Cina]"," Perasaan kesepian memicu respon yang sama di otak sebagai rasa sakit fisik. [BBCnews]","Di Cape Town, Afrika Selatan, remaja laki-laki yang memiliki gigi ompong dianggap tampan / maskulin.","Memeluk orang yg disayangi dpt membantu menurunkan tekanan darah, mengurangi stres dan","kecemasan, bahkn dpt meningkatkan memori. [Dailymail]","Kata \"Mouse\" (tikus) berasal dari turunan Bahasa Sansekerta \"Mus\" yang berarti \"pencuri\".Berjalan kaki atau bersepeda ke sekolah mempertajam konsentrasi siswa di kelas dan tetap bertahan sekitar 4 jam kemudian. [Medical Daily]","Menurut riset pasar global Euromonitor International, pria Korea adalah pria yang paling suka bersolek dari pria lain di dunia.","Rata-rata orang akan merasa 100 persen sehat / fit hanya 61 hari dalam setahun. (Penelitian di Inggris)","Polydactyl Cat adalah jenis kucing yang memiliki jempol di kaki mereka.","Hanya dengan mengurangi brightness dari televisi, anda mampu berhemat lebih dari Rp 1,5 juta setahun. [kompas]","Di Jerman, tahanan yg ingin meloloskan diri dr penjara adl bukan mrupakn perbuatan ilegal. Krn itu salah1 naluri dasar manusia untuk kebebasan.","Wanita merasa diri mereka terlihat paling jelek dan terlihat lebih tua pada hari Rabu pukul 15.30 . [studi baru dari St Tropez]Orang yang rutin bermain video game ternyata memiliki penalaran yang baik dibanding kebanyakan orang. (detikHealth)","Nama \"Gorila\" berasal dari kata Yunani \"Gorillai\" yang berarti \"perempuan berbulu\".","IBM mengatakan bahwa dalam kurun waktu 5 tahun ke depan, komputer bakal mirip manusia yang bisa melihat, mendengar, mencium dan merasakan.","Selama abad ke-13, kata \"nice\" sebenarnya berarti “stupid”, \"senseless\" dan “foolish\".","59. 49% dari pemilik Smartphone adalah jomblo. (Survei, \"2012 Online User Behavior and Engagement Study\")","Fakta Unik","60. Gazzarella adalah keju mozzarella yang terbuat dari susu kucing. 61. Rata-rata orang melihat / mengecek ponselnya sekitar 150 kali sehari. (Laporan Nokia pada MindTrek 2010)","Lalat dapat menyalurkan sekitar 300 bakteri setiap kali hinggap di benda.","Tertawa dapat meningkatkan aktivitas antibodi sekitar 20%, juga membantu untuk menghancurkan virus dan sel-sel tumor.","Fobia matematika (mathematics anxiety) memicu respon yang sama di otak sbg rasa sakit fisik. Gejalanya yaitu melihat angka saja sudah nyeri."," Karakter kartun Bugs Bunny diberi pangkat kehormatan sersan-mayor di Korps Marinir AS pada akhir Perang Dunia II. (wikipedia)","Apel yang ditaruh di ruang terbuka akan matang 10 kali lebih cepat dibandingkan dengan apel yang ditaruh di kulkas.","Ungkapan 'Smitten' adalah untuk menyebut 'naksir' dalam bahasa Inggris.","Menurut etiket internasional, sebuah jabat tangan yang tepat dan baik harus berlangsung selama sekitar 3 detik & dilepaskan setelah goyang.","Ketika kita sedang jatuh cinta, otak akan memproduksi dopamin ekstra, bahan kimia yang membuat seseorang menjadi gembira berlebihan."," \"Mwahahaha\" dan \"lolz\" telah ditambahkan ke Kamus Inggris Oxford.","Menurut penelitian, pria cenderung menurunkan volume suaranya ketika ia berbicara dg seseorang yg ia cintai, sementara perempuan sebaliknya.","Di Perancis, jajanan Arum Manis (Rambut Nenek) disebut \"Barbe á Papa\" yang berarti \"Jenggot Ayah\".","Menurut penelitian, PR terlalu banyak sebenarnya dapat menyebabkan siswa menjadi stres, depresi & mendapat nilai lebih rendah.","Hangry adalah penggabungan kata dari \"Hungry\" dan \"Angry\", di pakai ketika anda sedang lapar dan marah.","Kentut dari bakteri membuat keju swiss memiliki lubang-lubang.","Mendengarkan musik benar-benar dapat mengurangi rasa sakit kronis hingga 20% dan membantu meringankan depresi hingga 25%. (sciencedaily)","Orang yang merasa kesepian memiliki kemungkinan mengalami kepikunan 70-80% lebih tinggi. (Journal of Neurosurgery Neurologi and Psychiatry)","Melamun dpt memendekkan telomere (bagian paling ujung sel DNA) yang berperan dlm menjaga kestabilan sel, dimana dapat mempercepat proses penuaan."]
 									const ran_faktau = faktau[Math.floor(Math.random() * faktau.length)]
 									sendButMessage(from, `${ran_faktau}`, `${jams}`, [
@@ -3409,7 +3356,7 @@ case 'darkjokes':
 
 									break
 						case 'pantun':
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 													const pantun = ["\nAnak tikus rindu ibunya\n\nsombong nich ceritanya","\nAda kepompong ada kupu\n\nbales donk sms dari aku","\nBeli bandeng\n\ndi Malaysia\n\ngue ganteng\n\nkayak Pasha","\nHati siapa tak bimbang\n\nsitu botak minta dikepang","\nBuah semangka\n\nbuah duren\n\nnggak nyangka\n\ngue keren\n ","\n Mawar bersemi\n\ndi batang kayu\n\ndo you love me\n\nlike i love you","\nBurung perkutut\n\nburung kuthilang\n\nkamu kentut\n\nenggak bilang bilang","\nBread is roti\n\nshadow is bayang\n\nbefore you mati\n\nbetter you sembahyang","\nJangan takut\n\njangan khawatir\n\nitu kentut\n\nbukan petir","\nBeli ikan di pasar malam\n\ndasar bego ni kawan","\nMakan duren sambil ngelamun,\n\nHati-hati ketelen ntar bijinya","\nDi  sana gunung, di sini gunung\n\nCiptaan Tuhan deh","\nKan bandeng\n\nmakan kawat\n\norang ganteng\n\nnumpang lewat","\nOrang ganteng\n\nsuka sama si Rini\n\ngak seneng\n\nmaju sini","\nMelon manis di air es\n\nke mana aja lo gak pernah sms","\nJambu merah\n\ndi dinding\n\njangan marah\n\njust kidding","\nBuah semangka\n\nbuah manggis\n\nnggak nyangka\n\ngue manis","\nMen sana\n\nin corpore sano\n\ngue maen ke sana,\n\nelo maen ke sono!","\nBuah apel\n\ndi air payau\n\nnggak level\n\nlayauuuuuuu","\nDi sini bingung, di sana linglung\n\nemangnya enak, enggak nyambung…","\nBuah semangka berdaun sirih\n\nBuah ajaib kali yah","\nPilih suara harpa yang jelas.\n\nTali di harpa diikat cinta","\nCiuman di pipi\n\nciuman di dahi\n\nApa yang dicium sesudah lah cinta?","\nSepandai-pandai tupai melompat\n\nPolisi lebih pandai melompat","\nDua tiga kacang tanah\n\nenggak ada pacar yang datang ke rumah","\nDapet kado isinya tomat\n\nBodo amat!!","\nDulu delman, sekarang gokar\n\ndulu teman, sekarang pacar","\nStroberi mangga apel\n\nsorry gak level","\nBola pingpong dimakan gelatik\n\nBiar ompong yang penting cantik\n","\nMata belo,\n\nala komedian.\n\ngue sama elo?\n\nmaunya jadian.","\nTunda lapar,\n\nmakan indomi.\n\nhati menggelepar,\n\ncintapun bersemi.","\nPotong kuku,\n\npendek-pendek.\n\nhatiku beku,\n\nsi abang mendadak ngondek.","\nBeli ketan,\n\nbeli kain songket.\n\nbiar udah mantan,\n\nkita tetep lengket.","\nKe pasar, nyari obat gatal\n\nDasar, gak modal!","\nMakan semangka,\n\nmakan kedondong.\n\nkalau suka,\n\nnyatain dong.","\nGa punya pendirian,\n\nbikin jemu.\n\nga mau sendirian,\n\nmaunya bobo sama kamu.","\nNembak itik,\n\nlangsung kena.\n\nkamu cantik,\n\nhey nona!","\nKotak amal,\n\ndigoyang-goyang.\n\nkemarin aku diramal,\n\njodohnya sama abang.","\nHari Jumat,\n\npada pake batik.\n\nsalam hormat,\n\nbuat neng cantik.","\nPecahan genting,\n\ndi bawah kursi.\n\nbetah meeting,\n\nkarena si boss seksi.","\nNangis-nangis,\n\nmobil kena srempet.\n\nneng manis,\n\nmau dong dipepet.","\nPanasin mentega,\n\nkarena mulai beku.\n\nkamu mau ga,\n\njadi imamku?","\nPotong sebahu,\n\nbiar ga sendu.\n\nkamu tahu?\n\nAku rindu.","\nJangan tanya,\n\nkapan lulus kuliah.\n\nga dapet anaknya,\n\nmamanya boleh lah","\nBikin anak,\n\ndi pojokan sekolah\n\nkalau mau enak,\n\nnikah dulu lah.","\nMain mata,\n\nmesem-mesem.\n\nneng tetep cinta,\n\nbiarpun abang keteknya asem.","\nTiduran di tandu,\n\nberjam-jam.\n\nhati merindu,\n\nmata sulit memejam.","\nUbek-ubek peti,\n\ncari gunting.\n\nsaking cinta mati,\n\nneng rela bunting.","\nNamanya penjahat,\n\npolisi jadi inceran.\n\nbosan jadi temen curhat,\n\nmaunya pacaran.","\nKe salon creambath,\n\nbiar aliran darah lancar.\n\nbosen ah jadi sahabat,\n\nmaunya jadi pacar!"]
 									const ran_pantun = pantun[Math.floor(Math.random() * pantun.length)]
 									sendButMessage(from, `${ran_pantun}`, `${jams}`, [
@@ -3423,7 +3370,7 @@ case 'darkjokes':
 		
 									break
 									case 'bagaimanakah':   
-									if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+									
 			    	bagaimanakah = body.slice(1)
 					const bagai =['Kita Kenal?','Nanya Terus deh','Tidak Tahu','Coba Ulangi','Cari Aja Sendiri','Kurang Tahu','Mana Saya Tahu, Saya kan ikan']
 					const mana = bagai[Math.floor(Math.random() * bagai.length)]
@@ -3431,7 +3378,7 @@ case 'darkjokes':
 					break
 //══════════[ Fitur Sound  ]══════════//
       case 'sound1':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+      
       menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3439,7 +3386,7 @@ case 'darkjokes':
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound2':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3447,7 +3394,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound3':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3455,7 +3402,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound4':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3463,7 +3410,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound5':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3471,7 +3418,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound6':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3479,7 +3426,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound7':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3487,7 +3434,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound8':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3495,7 +3442,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound9':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3503,7 +3450,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound10':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3511,7 +3458,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound11':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3519,7 +3466,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound12':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3527,7 +3474,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound13':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3535,7 +3482,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound14':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3543,7 +3490,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound15':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3551,7 +3498,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound16':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3559,7 +3506,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound17':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3567,7 +3514,7 @@ menu =`Tunggu Beberapa Detik Ya Kak..`
 Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break
 case 'sound18':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 menu =`Tunggu Beberapa Detik Ya Kak..`
       teks =`Botchel 3.0.0 | Create By Fiannsaa`
       Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
@@ -3576,7 +3523,7 @@ Ryuu.sendMessage(from, man, MessageType.audio, {quoted: mek, mimetype: 'audio/mp
 break
 //══════════[ Fitur Download ]══════════//
 case 'spotify':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://open.spotify.com/track/0ZEYRVISCaqz5yamWZWzaA`)
                     url = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotify?apikey=${lolkey}&url=${url}`)
@@ -3592,7 +3539,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                     await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: lol })
                     break
                 case 'spotifysearch':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Melukis Senja`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotifysearch?apikey=${lolkey}&query=${query}`)
@@ -3607,8 +3554,8 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                     }
                     reply(ini_txt)
                     break
-                case 'jooxplay':
-                if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+                case 'joox':
+                
                     if (args.length == 0) return reply(`Example: ${prefix + command} Melukis Senja`)
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/jooxplay?apikey=${lolkey}&query=${query}`)
@@ -3625,29 +3572,19 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                     await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: lol })
                     break
 case 'ytmp3':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-            if (args.length < 1) return fakeyt('Link Nya Mana ?')
-            if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
-            teks = args.join(' ')
-            fakeyt(mess.wait)
-            res = await y2mateA(teks).catch(e => {
-            fakeyt('_[ ! ] Error Gagal Dalam Memasuki Web Y2mate_')
-})
-            result = `*YOUTUBE MP3 🎵*
-
-*Data Berhasil Didapatkan !!*
-⌖ _Title : ${res[0].judul}_
-⌖ _Ext : MP3_
-⌖ _Size : ${res[0].size}_
-
-\`\`\`Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit\`\`\``
-
-            sendFileFromUrl(res[0].thumb, image, {caption: result, quoted: mek}).then((lalu) => {
-            sendFileFromUrl(res[0].link, document, {quoted: mek, mimetype: 'audio/mp3', filename: res[0].output})
-})
-            break
+                    if (args.length == 0) return reply(`Example: ${prefix + command} https://www.youtube.com/watch?v=qZIQAk-BUEc`)
+                    ini_link = args[0]
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkey}&url=${ini_link}`)
+                    get_result = get_result.result
+                    caption = `❖ Title    : *${result.title}*\n`
+                    caption += `❖ Size     : *${result.size}*`
+                    ini_buffer = await getBuffer(get_result.thumbnail)
+                    await Ryuu.sendMessage(from, ini_buffer, image, { quoted: lol, caption: ini_txt })
+                    get_audio = await getBuffer(get_result.link)
+                    await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: lol })
+                    break
 case 'ytmp4':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
             if (args.length < 1) return fakeyt('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
@@ -3669,7 +3606,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 })
             break    
             case 'lirik':
-            if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+            
 if (args.length < 1) return reply('Judulnya?')
 reply(mess.wait)
 teks = body.slice(7)
@@ -3679,7 +3616,7 @@ reply(lirik)
 })
 break       
 case 'playstore':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
             if(!c) return reply('*Mau Cari Aplikasi Apa?!?!? Bangsat kau..!!🤬*')
             let play = await hx.playstore(c)
             let store = '\n❉─────────────────────❉\n'
@@ -3693,7 +3630,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
             reply(store)
             break
             case 'pinterest':
-            if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+            
 if (!c) return reply('yg mau di cari apa?')
 reply(mess.wait)
 pinterest(`${c}`).then( data => {
@@ -3702,37 +3639,53 @@ const pimterest = amsulah[Math.floor(Math.random() * amsulah.length)]
 sendMediaURL (from ,pimterest , `Pinterest : ${c}`)
 })
 break
-case 'play':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-        if (args.length < 1) return reply(`Kirim perintah *${prefix}play query`)
-        reply(mess.wait)
-        let yut = await yts(q)
-        yta (yut.videos[0].url)             
-        .then(async(res) => {
-        const { thumb, title, filesizeF, filesize } = res
-        const capti = `𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗣𝗟𝗔𝗬🍁
-		     
-•💬 Judul : ${yut.all[0].title}
-•🎥 ID Video : ${yut.all[0].videoId}
-•⏰️ Diupload Pada : ${yut.all[0].ago}
-•👁️️ Views : ${yut.all[0].views}
-•▶️ Durasi : ${yut.all[0].timestamp}
-•👑 Channel : ${yut.all[0].author.name}
-•🔗 Link Channel : ${yut.all[0].author.url}`      
-        ya = await getBuffer(thumb)
-        py = await Ryuu.prepareMessage(from, ya, image)
-        gbutsan = [{buttonId: `${prefix}ytmp3 ${yut.all[0].url}`, buttonText: {displayText: '🎵AUDIO'}, type: 1},{buttonId: `${prefix}ytmp4 ${yut.all[0].url}`, buttonText: {displayText: '🎥VIDEO'}, type: 1}]
-        gbuttonan = {
-        imageMessage: py.message.imageMessage,
-        contentText: capti,
-        footerText: 'Silahkan Pilih Jenis File Dibawah Ini☕',
-        buttons: gbutsan,
-        headerType: 4
-}
-        await Ryuu.sendMessage(from, gbuttonan, MessageType.buttonsMessage)})
-        break
+
+	case 'music':
+	case 'musik':
+	case 'ytmp3':	
+if (!isGroup) return reply(mess.only.group)
+			if (args.length === 0) return reply(`Kirim perintah *${prefix}play* _Judul lagu yang akan dicari_`)
+
+            var srch = args.join('')
+    		aramas = await yts(srch);
+    		aramat = aramas.all 
+   			var mulaikah = aramat[0].url							
+                  try {
+                    yta(mulaikah)
+                    .then((res) => {
+                        const { dl_link, thumb, title, filesizeF, filesize } = res
+                        axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+                           
+                        .then(async (a) => {
+                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `.•♫•♬• *PLAYING MUSIC* .•♫•♬•\n\n📜𝙏𝙞𝙩𝙡𝙚: ${title}\n🎁𝙏𝙮𝙥𝙚 : mp3\n𝙁𝙞𝙡𝙚 𝙎𝙞𝙯𝙚 : ${filesizeF}\n🖇𝙇𝙞𝙣𝙠 ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+                        const captions = `.•♫•♬• *PLAYING MUSIC* .•♫•♬•\n\n📜𝙏𝙞𝙩𝙡𝙚: ${title}\n🎁𝙏𝙮𝙥𝙚 : mp3\n𝙁𝙞𝙡𝙚 𝙎𝙞𝙯𝙚 : ${filesizeF}\n🖇𝙇𝙞𝙣𝙠 ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`
+                        sendMediaURL(from, thumb, captions)
+                        await sendMediaURL(from, dl_link).catch(() => reply('error'))
+                        })                
+                        })
+                        } catch (err) {
+                        reply(mess.error.api)
+                        }
+                   break
+                   
+case 'ytplay':
+                    if (args.length == 0) return await reply(`Example: ${prefix + command} melukis senja`)
+                    await fetchJson(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkey}&query=${args.join(" ")}`)
+                        .then(async(result) => {
+                            await fetchJson(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkey}&url=https://www.youtube.com/watch?v=${result.result[0].videoId}`)
+                                .then(async(result) => {
+                                    result = result.result
+                                    caption = `❖ Title    : *${result.title}*\n`
+                                    caption += `❖ Size     : *${result.size}*`
+                                    ini_buffer = await getBuffer(result.thumbnail)
+                                    await Ryuu.sendMessage(from, ini_buffer, image, { quoted: lol, caption: caption })
+                                    get_audio = await getBuffer(result.link)
+                                    await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${result.title}.mp3`, quoted: lol })
+                                })
+                        })
+                    break
 case 'ytsearch': case 'yts':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 					if (args.length < 1) return reply('Tolong masukan query!')
 					var srch = args.join(' ');
 					try {
@@ -3756,7 +3709,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 		    		await Ryuu.sendMessage(from, tbuff, image, {quoted : mek, caption: ytresult})
 					break					
 					 case 'mediafire':
-					 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+					 
 									if (args.length < 1) return reply('Masukkan link mediafire')
 									if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply('Linknya Error')
 									reply(mess.wait)
@@ -3777,7 +3730,7 @@ _Tunggu Proses Upload Media_`
               case 'google':
 case 'googlesearch':
 case 'ggs':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length < 1) return reply('Yang mau di cari apaan?')
 teks = args.join(' ')
 reply(mess.wait)
@@ -3792,7 +3745,7 @@ var akhir = kant.trim()
 reply(akhir)
 break
 case 'wiki':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (args.length < 1) return reply(' Yang Mau Di Cari Apa? ')
 teks = args.join(' ')
 res = await wikiSearch(teks).catch(e => {
@@ -3805,7 +3758,7 @@ sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => 
 })
 break
                case 'bass': 
-               if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+               
 									encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 									media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
 									ran = getRandom('.mp3')
@@ -3818,7 +3771,7 @@ break
 										})
 										break
 						case 'slowmo': case 'slow':
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 									try {
 										encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 										media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
@@ -3835,7 +3788,7 @@ break
 												}
 									break
 						case 'fast':
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 									try {
 										encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 										media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
@@ -3852,7 +3805,7 @@ break
 												}  
 									break
 						case 'robot':
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 									encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 									media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
 									ran = getRandom('.mp3')
@@ -3865,7 +3818,7 @@ break
 										})
 									break
 									case 'tiktoknowm':   case 'tiktok':
-									if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+									
 									if (!q) return reply('Linknya?')
 									if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
 									reply(mess.wait)
@@ -3882,7 +3835,7 @@ break
 										}).catch((err) => reply(`Link tidak valid`))
 									break 
 						case 'tiktokwm':
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 									if (!q) return reply('Linknya?')
 									if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
 									reply(mess.wait)
@@ -3899,7 +3852,7 @@ break
 										}).catch((err) => reply(`Link tidak valid`))
 									break
 									case 'reverse':
-									if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+									
             if (!isQuotedVideo) return fakegroup('Reply videonya!')
             encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
             media = await Ryuu.downloadAndSaveMediaMessage(encmedia)
@@ -3914,7 +3867,7 @@ break
             break
 //══════════[ Fitur Owner ]══════════//
 case 'owner':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 members_ids = []
 for (let mem of groupMembers) {
 members_ids.push(mem.jid)
@@ -3934,7 +3887,7 @@ menu = `Itu Owner ku kak mau nanya soal apa yaa..`
  sendButton(from, menu, teks, but, {quoted: ftrol})
  break
 case 'creator':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 members_ids = []
 for (let mem of groupMembers) {
 members_ids.push(mem.jid)
@@ -3954,7 +3907,7 @@ menu = `Itu Creator ku kak mau nanya soal apa yaa..`
  sendButton(from, menu, teks, but, {quoted: ftrol})
  break
 case 'bc':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
              if (!isOwner && !mek.key.fromMe) return  reply(mess.only.owner)
              if (args.length < 1) return reply('teks?')
              anu100 = await Ryuu.chats.all()
@@ -3986,13 +3939,13 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
              case 'delete':
       case 'del':
       case 'd':
-      if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+      
             if (!isOwner && !mek.key.fromMe) return  reply(mess.only.owner)
             if (!isQuotedReply) return reply(`Reply pesan dari bot!!`)
             Ryuu.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: mek })
             break
             case 'setnamabot':{
-            if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+            
 									if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner)
 									if (args.length < 1) return reply(`Kirim perintah ${command} nama\n\nContoh : ${command} RyuuSih`)
 									Ryuu.updateProfileName(q)
@@ -4001,7 +3954,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 									 }
 									break
 						case 'setbiobot':{
-						if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+						
 									 if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner)
 									if (args.length < 1) return reply(`Kirim perintah ${command} nama\n\nContoh : ${command} RyuuSih`)
 									Ryuu.setStatus(q)
@@ -4012,7 +3965,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 
 //══════════[ Fitur Grup ]══════════//
 case 'welcome':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (args.length < 1) return fakeyt(`Ketik :\n${prefix}welcome on untuk mengaktifkan\n${prefix}welcome off untuk menonaktifkan`)
@@ -4031,7 +3984,7 @@ fakeyt('*on untuk mengaktifkan, off untuk menonaktifkan*')
 }
 break
 case 'antilink':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4051,7 +4004,7 @@ fakeyt(`_Pilih on atau off_`)
 }
 break
 case 'antivirtex':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4072,7 +4025,7 @@ fakeyt(`_Pilih on atau off_`)
 break
 case 'group':
 case 'grup':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4087,7 +4040,7 @@ break
 case 'linkgroup':
 case 'linkgrup':
 case 'linkgc':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
 linkgc = await Ryuu.groupInviteCode(from)
@@ -4095,7 +4048,7 @@ yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 Ryuu.sendMessage(from, yeh, text, { quoted: ftrol })
 break
 case 'promote' :
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4114,7 +4067,7 @@ Ryuu.groupMakeAdmin(from, mentioned)
 }
 break
 case 'demote' :
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4133,7 +4086,7 @@ Ryuu.groupDemoteAdmin(from, mentioned)
 }
 break
 case 'add':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return sticGroup(from)
 if (!isGroupAdmins) return sticAdmin(from)
 if (!isBotGroupAdmins) return sticBotAdmin(from)
@@ -4148,7 +4101,7 @@ reply('Gagal menambahkan target, mungkin karena di private')
 }
 break
 case 'kick':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 			if (!isGroup) return reply(`Khusus Grup Ngab 😏`)
 			if (!isGroupAdmins && !mek.key.fromMe) return reply(`Lu Admin? 🤨`)
 			if (!isBotGroupAdmins) return reply(`Bot Bukan Admin`)
@@ -4158,7 +4111,7 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 			reply(`Succses`)
 			break
 case 'tagall':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins) return fakeyt(mess.only.admin)
 members_id = []
@@ -4171,7 +4124,7 @@ members_id.push(mem.jid)
 mentions(teks, members_id, true)
 break
 case 'setname':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4179,7 +4132,7 @@ Ryuu.groupUpdateSubject(from, `${body.slice(9)}`)
 Ryuu.sendMessage(from, `\`\`\`Sukses ✅, Mengganti nama grup menjadi\`\`\` *${body.slice(9)}*`, text, { quoted: ftrol })
 break
 case 'setdesc':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4188,7 +4141,7 @@ Ryuu.sendMessage(from, `\`\`\`Sukses ✅, Mengganti deskripsi grup\`\`\` *${grou
 break
 case 'setppgrup':
 case 'setpp':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4203,7 +4156,7 @@ fakeyt(`Kirim atau tag gambar dengan caption ${prefix}setppgrup`)
 }
 break
 case 'hidetag':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !isOwner && !mek.key.fromMe) return fakeyt(mess.only.admin)
 try {
@@ -4218,7 +4171,7 @@ case 'infogrup':
 case 'infogrouup':
 case 'grupinfo':
 case 'groupinfo':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 try {
 var pic = await Ryuu.getProfilePicture(from)
@@ -4233,7 +4186,7 @@ case 'resetlinkgroup':
 case 'resetlinkgrup':
 case 'revoke':
 case 'resetlink':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4244,7 +4197,7 @@ break
 case 'online':
 case 'listonline':
 case 'here':  
-        if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+        
 if (!isGroup) return fakeyt(mess.only.group)
 try {
 let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
@@ -4255,7 +4208,7 @@ fakeyt(`${e}`)
 }
 break
 case 'virtex1':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4263,7 +4216,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex2(prefix)}`)
 break
 case 'virtex2':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4271,7 +4224,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex3(prefix)}`)
 break
 case 'virtes3':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4279,7 +4232,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex4(prefix)}`)
 break
 case 'virtex4':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4287,7 +4240,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex5(prefix)}`)
 break
 case 'virtex5':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4295,7 +4248,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex6(prefix)}`)
 break
 case 'virtex6':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4303,7 +4256,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex7(prefix)}`)
 break
 case 'virtex7':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4311,7 +4264,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex8(prefix)}`)
 break
 case 'virtex8':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4319,7 +4272,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtex9(prefix)}`)
 break
 case 'virtag':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4327,7 +4280,7 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${virtag(prefix)}`)
 break
 case 'emoji':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
@@ -4335,7 +4288,6 @@ if (!mek.key.fromMe && !isOwner) return reply(mess.only.owner)
 katalog(`${emoji2(prefix)}`)
 break
 case 'ngazab':
-if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 if (!isGroup) return fakeyt(mess.only.group)
 if (!isGroupAdmins && !mek.key.fromMe) return fakeyt(mess.only.admin)
 if (!isBotGroupAdmins) return fakeyt(mess.only.Badmin)
