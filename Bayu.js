@@ -1683,64 +1683,9 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
                  ]
             sendButLocation(from, mobilelegend(prefix), fake, imgml, but)
             break
-    case 'js': case 'jashare':
-    if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
-            imgff = fs.readFileSync('./shop/imgshop/qris.jpeg')
-            but = [
-            { buttonId: `${prefix}format`, buttonText: { displayText: 'ORDER BANG 🙋‍♂️' }, type: 1 },
-                 ]
-            sendButLocation(from, ff(prefix), fake, imgff, but)
-            break
+    
             
-            case 'js':
-case 'jasashare':
-        ptod = "62896465831949@s.whatsapp.net"
-        stod = `${sender}`
-        uwu = '```'
-       stst = await pemuda.getStatus(`${sender.split('@')[0]}@c.us`)
-				stst = stst.status == 401 ? '' : stst.status
-			
-       menu = `🇯‌🇦‌🇸‌🇦‌ 🇸‌🇭‌🇦‌🇷‌🇪‌ 🇴‌🇵‌🇧‌🇷‌
-       
-*☁️ ֙ 𖥻 Chellstore*
-▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌
-
-*- 🌸 ⍴ᥲkᥱ𝗍 100 gr᥆ᥙ⍴*
-ꉂ🍨1× sһᥲrᥱ = 1.000
-ꉂ🍨2× sһᥲrᥱ = 2.000
-ꉂ🍨3× sһᥲrᥱ = 3.000
-
-*- 🌸 ⍴ᥲkᥱ𝗍 200 gr᥆ᥙ⍴*
-ꉂ🍨1× sһᥲrᥱ = 2.000
-ꉂ🍨2× sһᥲrᥱ = 4.000
-ꉂ🍨3× sһᥲrᥱ = 6.000
-
-*- 🌸 ⍴ᥲkᥱ𝗍 300 gr᥆ᥙ⍴*
-ꉂ🍨1× sһᥲrᥱ = 3.000
-ꉂ🍨2× sһᥲrᥱ = 6.000
-ꉂ🍨3× sһᥲrᥱ = 9.000
-
-*- 🌸 ⍴ᥲᥡmᥱᥒ𝗍*
-ꉂ🍨g᥆⍴ᥲᥡ
-ꉂ🍨ძᥲᥒᥲ
-ꉂ🍨𝗊rіs ᥲᥣᥣ ⍴ᥲᥡmᥱᥒ𝗍
-
-*- 👥 gr᥆ᥙ⍴*
-https://chat.whatsapp.com/BlVcfdhCyzz8iWaDvSDKd1
-
-*- 📞 ᥴ᥆ᥒ𝗍ᥲᥴ𝗍*
-https://wa.me/62896465831949
-
-*- 🛡️ 𝗍ᥱs𝗍іm᥆ᥒі*
-https://instagram.com/chelllstore?utm_medium=copy_link
-
-
-(ᥒ) ȷᥲsᥲ sһᥲrᥱ ᑲᥱrᥙ⍴ᥲ 𝗍ᥱks/ᥣіs𝗍, 𝗍іძᥲk mᥱᥒᥱrіmᥲ gᥲmᑲᥲr ᥲ𝗍ᥲᥙ 𝖿᥆𝗍᥆.
-
-*║▌│█║▌│ █║▌│█│║▌*
-*www.cɦɛʟʟsȶօʀɛ.com*`
-       sendButLocation(from, `${menu}`, `${uwu}NoCopas${uwu}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}payment`,buttonText:{displayText:'PAYMENT'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
-break
+            
 
       case 'formatorder': case 'format':
       if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
@@ -2112,21 +2057,127 @@ if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: trol
 					Ryuu.sendMessage(`${owner}@s.whatsapp.net`, options, text, {quoted: mek})
 					reply('Laporan anda sudah mendarat ke owner, Laporan palsu atau main² tidak akan ditanggapi.')
 					break
-case 'sewabot':
+case 'dana': 				
+                    wew = fs.readFileSync(`./media/dana.jpg`)
+                      lzain = `*Caranya :*
+                      
+1. Buka Aplikasi *DANA* di HP-mu.
+2. Pilih Pay / Bayar
+3. Scan Barcode diatas *DANA*
+4. Masukkan Nominal Pembayaran
+5. Selesai 
+
+*Testimoni* : https://instagram.com/chelllstore?utm_medium=copy_link
+
+*Ingin transaksi ?* harap konfirmasi ke owner
+wa.me/62896465831949
+
+*Wajib kirim bukti pembayaran*`
+Ryuu.sendMessage(from, wew, image, { quoted: mek, caption: lzain })
+break
+
+case 'gopay': 				
+                    wew = fs.readFileSync(`./media/qrcode.jpg`)
+                      lzain = `*Caranya :*
+                      
+1. Buka Aplikasi *GOPAY* di HP-mu.
+2. Pilih Pay / Bayar
+3. Scan Barcode diatas *GOPAY*
+4. Masukkan Nominal Pembayaran
+5. Selesai 
+
+*Testimoni* : https://instagram.com/chelllstore?utm_medium=copy_link
+
+*Ingin transaksi ?* harap konfirmasi ke owner
+wa.me/62896465831949
+
+*Wajib kirim bukti pembayaran*`
+Ryuu.sendMessage(from, wew, image, { quoted: mek, caption: lzain })
+break
+					
+case 'qris': 			
+                    wew = fs.readFileSync(`./media/qris.jpg`)
+                      lzain = `*Caranya :*
+                      
+1. Buka Aplikasi *Yang Support Qris* di HP-mu.
+2. Pilih Pay / Bayar
+3. Scan Barcode diatas *QRIS All payment*
+4. Masukkan Nominal Pembayaran
+5. Selesai 
+
+*Testimoni* : https://instagram.com/chelllstore?utm_medium=copy_link
+
+*Ingin transaksi ?* harap konfirmasi ke owner
+wa.me/62896465831949
+
+*Wajib Kirim bukti pembayaran*`
+Ryuu.sendMessage(from, wew, image, { quoted: mek, caption: lzain })
+break
+
+					
+case 'js':
+case 'jashare':
 if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
 menu =
 `*${jams} @${sender.split('@')[0]}*
-𝗢 𝗣 𝗘 𝗡  𝗦 𝗘 𝗪 𝗔  𝗕 𝗢 𝗧
+🇯‌🇦‌🇸‌🇭‌🇦‌🇷‌🇪‌  🇴‌🇵‌🇧‌🇷‌
+       
+*☁️ ֙ 𖥻 Chellstore*
+▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌▔ٰ‌ּ‌￣ּ֪▔ٰ‌ּ‌
 
-✾ *1 Minggu : 5.000 ( 5K )*
-✾ *1 Bulan : 10.000 ( 10K )*
-✾ *Permanen : 15.000 ( 15K )*
-✾ *Join Murid Bot : 20.000 ( 20K )*`
+*- 🌸 ⍴ᥲkᥱ𝗍 100 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 1.000
+ꉂ🍨2× sһᥲrᥱ = 2.000
+ꉂ🍨3× sһᥲrᥱ = 3.000
+
+*- 🌸 ⍴ᥲkᥱ𝗍 200 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 2.000
+ꉂ🍨2× sһᥲrᥱ = 4.000
+ꉂ🍨3× sһᥲrᥱ = 6.000
+
+*- 🌸 ⍴ᥲkᥱ𝗍 300 gr᥆ᥙ⍴*
+ꉂ🍨1× sһᥲrᥱ = 3.000
+ꉂ🍨2× sһᥲrᥱ = 6.000
+ꉂ🍨3× sһᥲrᥱ = 9.000
+
+*- 🌸 ⍴ᥲᥡmᥱᥒ𝗍*
+ꉂ🍨g᥆⍴ᥲᥡ
+ꉂ🍨ძᥲᥒᥲ
+ꉂ🍨𝗊rіs ᥲᥣᥣ ⍴ᥲᥡmᥱᥒ𝗍
+
+*- 👥 gr᥆ᥙ⍴*
+https://chat.whatsapp.com/BlVcfdhCyzz8iWaDvSDKd1
+
+*- 📞 ᥴ᥆ᥒ𝗍ᥲᥴ𝗍*
+https://wa.me/62896465831949
+
+*- 🛡️ 𝗍ᥱs𝗍іm᥆ᥒі*
+https://instagram.com/chelllstore?utm_medium=copy_link
+
+
+(ᥒ) ȷᥲsᥲ sһᥲrᥱ ᑲᥱrᥙ⍴ᥲ 𝗍ᥱks/ᥣіs𝗍, 𝗍іძᥲk mᥱᥒᥱrіmᥲ gᥲmᑲᥲr ᥲ𝗍ᥲᥙ 𝖿᥆𝗍᥆.
+
+*║▌│█║▌│ █║▌│█│║▌*
+*www.cɦɛʟʟsȶօʀɛ.com*`
 teks =
 `Botchel 3.0.0 | Create By Fiannsaa
 ${tampilTanggal}`
-Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}menu`, buttonText: { displayText: 'BACK MENU 💌' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}payment`, buttonText: { displayText: 'PAYMENT 💸' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
+
+case 'pay':
+case 'payment':
+if (!isUser) return sendButRegis(from, daftar1, daftar2, daftar3, { quoted: troli})
+menu =
+`*${jams} @${sender.split('@')[0]}*
+Untuk payment silahkan klik tombol di bawah`
+teks =
+`Botchel 3.0.0 | Create By Fiannsaa
+${tampilTanggal}`
+Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}qris`, buttonText: { displayText: 'QRIS' }, type: 1 },{ buttonId: `${prefix}dana`, buttonText: { displayText: 'DANA' }, type: 1 },{ buttonId: `${prefix}gopay`, buttonText: { displayText: 'GOPAY' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
+break
+
+
 case 'sc':
 case 'script':
 case 'infosc':
