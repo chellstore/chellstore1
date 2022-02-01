@@ -2077,7 +2077,7 @@ Ryuu.sendMessage(from, wew, image, { quoted: mek, caption: lzain })
 break
 
 case 'gopay': 				
-                    wew = fs.readFileSync(`./media/qrcode.jpg`)
+                    wew = fs.readFileSync(`./media/gopay.jpg`)
                       lzain = `*Caranya :*
                       
 1. Buka Aplikasi *GOPAY* di HP-mu.
