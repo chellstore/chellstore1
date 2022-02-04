@@ -2082,147 +2082,30 @@ case 'payment':
             stod = `${sender}`
       stst = await Ryuu.getStatus(`${sender.split('@')[0]}@c.us`)
 	  stst = stst.status == 401 ? '' : stst.status
-            const modde = public ? 'PUBLIC': 'SELF'
             listMsg = {
-            buttonText: 'MENU DISINI 💻',
+            buttonText: 'PAYMENT DISINI',
             footerText: fake,
             description: `*Hai Kak* @${sender.split('@')[0]} ${jams}
 
-╭─⬣「 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥 」⬣
-│✾ 𝙉𝙖𝙢𝙚 : ${pushname}
-│✾ 𝙏𝙖𝙜𝙨 : @${sender.split("@")[0]}
-│✾ 𝙎𝙩𝙖𝙩𝙪𝙨 : ${isOwner? "Owner️":"User"}
-╰─⬣
-
-╭─⬣「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧 」⬣
-│✾ 𝙋𝙧𝙚𝙛𝙞𝙭 𝘽𝙤𝙩 : ⌜ ${prefix} ⌟
-│✾ 𝙉𝙖𝙢𝙚𝘽𝙤𝙩 : ${botname}
-│✾ 𝙉𝙖𝙢𝙚𝙊𝙬𝙣𝙚𝙧 : ${ownername}
-│✾ 𝙈𝙤𝙙𝙚 : ${modde}
-│✾ 𝙍𝙪𝙣 : ${runtime(process.uptime())}
-│✾ 𝙇𝙞𝙗 : 𝘽𝙖𝙞𝙡𝙚𝙮𝙨
-╰─⬣
-
-╭─⬣「 𝗜𝗡𝗗𝗢𝗡𝗘𝗦𝗜𝗔 𝗧𝗜𝗠𝗘 」⬣
-│✾ 𝙒𝙞𝙗 : ${timeWib}
-│✾ 𝙒𝙞𝙩𝙖 : ${timeWita}
-│✾ 𝙒𝙞𝙩 : ${timeWit}  
-╰─⬣
-
-𝙋𝙚𝙣𝙘𝙚𝙩 𝘽𝙪𝙩𝙩𝙤𝙣 𝘿𝙞 𝘽𝙖𝙬𝙖𝙝 𝙄𝙣𝙞 𝙐𝙣𝙩𝙪𝙠 𝙈𝙚𝙢𝙞𝙡𝙞𝙝 𝙈𝙚𝙣𝙪`, 
+𝙆𝙡𝙞𝙠 𝘽𝙪𝙩𝙩𝙤𝙣 𝘿𝙞 𝘽𝙖𝙬𝙖𝙝 𝙄𝙣𝙞 𝙐𝙣𝙩𝙪𝙠 𝙈𝙚𝙢𝙞𝙡𝙞𝙝 𝙋𝙖𝙮𝙢𝙚𝙣𝙩`, 
             sections: [
             {
             "title": `Silahkan Dipilih Kak ${pushname} 🤗`,
             rows: [
             {
-              "title": "ALL MENU [🕊️]",
-              "rowId": `${prefix}allmenu`,
+              "title": "QRIS",
+              "rowId": `${prefix}qris`,
               "description": `Menampilkan Seluruh Menu ${botname}`
             },
             {
-              "title": "STORE MENU [💎]",
-              "rowId": `${prefix}storemenu`, 
+              "title": "DANA",
+              "rowId": `${prefix}dana`, 
               "description": `Menampilkan Seluruh Store ${botname}`
             },
             {
-              "title": "SOUND MENU [💿]",
-              "rowId": `${prefix}soundmenu`, 
+              "title": "GOPAY",
+              "rowId": `${prefix}gopay`, 
               "description": `Menampilkan Seluruh Sound ${botname}`
-            },
-            {
-              "title": "AUDIOMENU [🎙]",
-              "rowId": `${prefix}audiomenu`, 
-              "description": `Menampilkan Seluruh Audio ${botname}`
-            },
-            {
-              "title": "NEKOPOI MENU [🎞]",
-              "rowId": `${prefix}nekopoimenu`, 
-              "description": `Menampilkan Seluruh Nekopoi ${botname}`
-            },
-            {
-              "title": "GROUP MENU [👨]‍‍",
-              "rowId": `${prefix}grupmenu`, 
-              "description": `Menampilkan Seluruh Group ${botname}`
-            },
-            {
-              "title": "OWNER MENU [👤]",
-              "rowId": `${prefix}ownermenu`, 
-              "description": `Menampilkan Seluruh Owner ${botname}`
-            },
-            {
-              "title": "‍NSFW MENU [🔞]",
-              "rowId": `${prefix}nsfwmenu`, 
-              "description": `Menampilkan Seluruh Nsfw ${botname}`
-            },
-            {
-              "title": "‍ISLAMI MENU [🕋]",
-              "rowId": `${prefix}islamimenu`, 
-              "description": `Menampilkan Seluruh Islami ${botname}`
-            },
-            {
-              "title": "‍TEXTPROME MENU [⌨️]",
-              "rowId": `${prefix}textpromemenu`, 
-              "description": `Menampilkan Seluruh Textprome ${botname}`
-            },
-            {
-              "title": "‍POTOOXY MENU [📸️]",
-              "rowId": `${prefix}potooxymenu`, 
-              "description": `Menampilkan Seluruh Potooxy ${botname}`
-            },
-            {
-              "title": "‍EPHOTO MENU [✉️️]",
-              "rowId": `${prefix}ephotomenu`, 
-              "description": `Menampilkan Seluruh Ephoto 360 ${botname}`
-            },
-            {
-              "title": "‍WAR MENU [️💀]",
-              "rowId": `${prefix}warmenu`, 
-              "description": `Menampilkan Seluruh War ${botname}`
-            },
-            {
-              "title": "‍ANIME MENU [💕️]",
-              "rowId": `${prefix}animemenu`, 
-              "description": `Menampilkan Seluruh Anime ${botname}`
-            },
-            {
-              "title": "‍ASUPAN MENU [👩‍🦰]",
-              "rowId": `${prefix}asupanmenu`, 
-              "description": `Menampilkan Seluruh Asupan ${botname}`
-            },
-            {
-              "title": "‍CECAN MENU [👯]",
-              "rowId": `${prefix}cecanmenu`, 
-              "description": `Menampilkan Seluruh Cecan ${botname}`
-            },
-            {
-              "title": "FUN MENU [🚲]",
-              "rowId": `${prefix}funmenu`, 
-              "description": `Menampilkan Seluruh Fun ${botname}`
-            },
-            {
-              "title": "DOWNLOAD MENU [💾]",
-              "rowId": `${prefix}downloadmenu`, 
-              "description": `Menampilkan Seluruh Download ${botname}`
-            },
-            {
-              "title": "DONASI [🎁]",
-              "rowId": `${prefix}donasi`, 
-              "description": `Menampilkan Donasi ${botname}`
-            },
-            {
-              "title": "SOURCE CODE [💻]",
-              "rowId": `${prefix}sc`, 
-              "description": `Menampilkan Script Bot Botchel`
-            },
-            {
-              "title": "BIG THANKS TO [🏆]",
-              "rowId": `${prefix}tqto`, 
-              "description": `Menampilkan Thanks ${botname}`
-            },
-            {
-              "title": "RULES [📚]",
-              "rowId": `${prefix}rules`, 
-              "description": `Menampilkan Rules Pengguna Bot ${botname}`
             }
             ]
             }],

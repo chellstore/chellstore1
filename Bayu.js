@@ -2082,13 +2082,12 @@ case 'payment':
             stod = `${sender}`
       stst = await Ryuu.getStatus(`${sender.split('@')[0]}@c.us`)
 	  stst = stst.status == 401 ? '' : stst.status
-            const modde = public ? 'PUBLIC': 'SELF'
             listMsg = {
-            buttonText: 'MENU DISINI 💻',
+            buttonText: 'PAYMENT',
             footerText: fake,
             description: `*Hai Kak* @${sender.split('@')[0]} ${jams}
 
-𝙆𝙡𝙞𝙠 𝘽𝙪𝙩𝙩𝙤𝙣 𝘿𝙞 𝘽𝙖𝙬𝙖𝙝 𝙄𝙣𝙞 𝙐𝙣𝙩𝙪𝙠 𝙈𝙚𝙢𝙞𝙡𝙞𝙝 𝙋𝙖𝙮𝙢𝙚𝙣𝙩`, 
+*Silahkan klik payment di bawah ini*`, 
             sections: [
             {
             "title": `Silahkan Dipilih Kak ${pushname} 🤗`,
@@ -2096,17 +2095,17 @@ case 'payment':
             {
               "title": "QRIS",
               "rowId": `${prefix}qris`,
-              "description": `Menampilkan Seluruh Menu ${botname}`
+              "description": `Menampilkan via qris all payment`
             },
             {
               "title": "DANA",
               "rowId": `${prefix}dana`, 
-              "description": `Menampilkan Seluruh Store ${botname}`
+              "description": `Menampilkan payment via dana`
             },
             {
               "title": "GOPAY",
               "rowId": `${prefix}gopay`, 
-              "description": `Menampilkan Seluruh Sound ${botname}`
+              "description": `Menampilkan payment via gopay`
             }
             ]
             }],
