@@ -2076,17 +2076,160 @@ ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}payment`, buttonText: { displayText: 'PAYMENT 💸' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
 
-case 'pay':
 case 'payment':
+      case 'pay':
+       
+            stod = `${sender}`
+      stst = await Ryuu.getStatus(`${sender.split('@')[0]}@c.us`)
+	  stst = stst.status == 401 ? '' : stst.status
+            const modde = public ? 'PUBLIC': 'SELF'
+            listMsg = {
+            buttonText: 'MENU DISINI 💻',
+            footerText: fake,
+            description: `*Hai Kak* @${sender.split('@')[0]} ${jams}
 
-menu =
-`*${jams} @${sender.split('@')[0]}*
-Untuk payment silahkan klik tombol di bawah`
-teks =
-`Botchel 3.0.0 | Create By Fiannsaa
-${tampilTanggal}`
-Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}qris`, buttonText: { displayText: 'QRIS' }, type: 1 },{ buttonId: `${prefix}dana`, buttonText: { displayText: 'DANA' }, type: 1 },{ buttonId: `${prefix}gopay`, buttonText: { displayText: 'GOPAY' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
-break
+╭─⬣「 𝗜𝗡𝗙𝗢 𝗨𝗦𝗘𝗥 」⬣
+│✾ 𝙉𝙖𝙢𝙚 : ${pushname}
+│✾ 𝙏𝙖𝙜𝙨 : @${sender.split("@")[0]}
+│✾ 𝙎𝙩𝙖𝙩𝙪𝙨 : ${isOwner? "Owner️":"User"}
+╰─⬣
+
+╭─⬣「 𝗜𝗡𝗙𝗢 𝗕𝗢𝗧 」⬣
+│✾ 𝙋𝙧𝙚𝙛𝙞𝙭 𝘽𝙤𝙩 : ⌜ ${prefix} ⌟
+│✾ 𝙉𝙖𝙢𝙚𝘽𝙤𝙩 : ${botname}
+│✾ 𝙉𝙖𝙢𝙚𝙊𝙬𝙣𝙚𝙧 : ${ownername}
+│✾ 𝙈𝙤𝙙𝙚 : ${modde}
+│✾ 𝙍𝙪𝙣 : ${runtime(process.uptime())}
+│✾ 𝙇𝙞𝙗 : 𝘽𝙖𝙞𝙡𝙚𝙮𝙨
+╰─⬣
+
+╭─⬣「 𝗜𝗡𝗗𝗢𝗡𝗘𝗦𝗜𝗔 𝗧𝗜𝗠𝗘 」⬣
+│✾ 𝙒𝙞𝙗 : ${timeWib}
+│✾ 𝙒𝙞𝙩𝙖 : ${timeWita}
+│✾ 𝙒𝙞𝙩 : ${timeWit}  
+╰─⬣
+
+𝙋𝙚𝙣𝙘𝙚𝙩 𝘽𝙪𝙩𝙩𝙤𝙣 𝘿𝙞 𝘽𝙖𝙬𝙖𝙝 𝙄𝙣𝙞 𝙐𝙣𝙩𝙪𝙠 𝙈𝙚𝙢𝙞𝙡𝙞𝙝 𝙈𝙚𝙣𝙪`, 
+            sections: [
+            {
+            "title": `Silahkan Dipilih Kak ${pushname} 🤗`,
+            rows: [
+            {
+              "title": "ALL MENU [🕊️]",
+              "rowId": `${prefix}allmenu`,
+              "description": `Menampilkan Seluruh Menu ${botname}`
+            },
+            {
+              "title": "STORE MENU [💎]",
+              "rowId": `${prefix}storemenu`, 
+              "description": `Menampilkan Seluruh Store ${botname}`
+            },
+            {
+              "title": "SOUND MENU [💿]",
+              "rowId": `${prefix}soundmenu`, 
+              "description": `Menampilkan Seluruh Sound ${botname}`
+            },
+            {
+              "title": "AUDIOMENU [🎙]",
+              "rowId": `${prefix}audiomenu`, 
+              "description": `Menampilkan Seluruh Audio ${botname}`
+            },
+            {
+              "title": "NEKOPOI MENU [🎞]",
+              "rowId": `${prefix}nekopoimenu`, 
+              "description": `Menampilkan Seluruh Nekopoi ${botname}`
+            },
+            {
+              "title": "GROUP MENU [👨]‍‍",
+              "rowId": `${prefix}grupmenu`, 
+              "description": `Menampilkan Seluruh Group ${botname}`
+            },
+            {
+              "title": "OWNER MENU [👤]",
+              "rowId": `${prefix}ownermenu`, 
+              "description": `Menampilkan Seluruh Owner ${botname}`
+            },
+            {
+              "title": "‍NSFW MENU [🔞]",
+              "rowId": `${prefix}nsfwmenu`, 
+              "description": `Menampilkan Seluruh Nsfw ${botname}`
+            },
+            {
+              "title": "‍ISLAMI MENU [🕋]",
+              "rowId": `${prefix}islamimenu`, 
+              "description": `Menampilkan Seluruh Islami ${botname}`
+            },
+            {
+              "title": "‍TEXTPROME MENU [⌨️]",
+              "rowId": `${prefix}textpromemenu`, 
+              "description": `Menampilkan Seluruh Textprome ${botname}`
+            },
+            {
+              "title": "‍POTOOXY MENU [📸️]",
+              "rowId": `${prefix}potooxymenu`, 
+              "description": `Menampilkan Seluruh Potooxy ${botname}`
+            },
+            {
+              "title": "‍EPHOTO MENU [✉️️]",
+              "rowId": `${prefix}ephotomenu`, 
+              "description": `Menampilkan Seluruh Ephoto 360 ${botname}`
+            },
+            {
+              "title": "‍WAR MENU [️💀]",
+              "rowId": `${prefix}warmenu`, 
+              "description": `Menampilkan Seluruh War ${botname}`
+            },
+            {
+              "title": "‍ANIME MENU [💕️]",
+              "rowId": `${prefix}animemenu`, 
+              "description": `Menampilkan Seluruh Anime ${botname}`
+            },
+            {
+              "title": "‍ASUPAN MENU [👩‍🦰]",
+              "rowId": `${prefix}asupanmenu`, 
+              "description": `Menampilkan Seluruh Asupan ${botname}`
+            },
+            {
+              "title": "‍CECAN MENU [👯]",
+              "rowId": `${prefix}cecanmenu`, 
+              "description": `Menampilkan Seluruh Cecan ${botname}`
+            },
+            {
+              "title": "FUN MENU [🚲]",
+              "rowId": `${prefix}funmenu`, 
+              "description": `Menampilkan Seluruh Fun ${botname}`
+            },
+            {
+              "title": "DOWNLOAD MENU [💾]",
+              "rowId": `${prefix}downloadmenu`, 
+              "description": `Menampilkan Seluruh Download ${botname}`
+            },
+            {
+              "title": "DONASI [🎁]",
+              "rowId": `${prefix}donasi`, 
+              "description": `Menampilkan Donasi ${botname}`
+            },
+            {
+              "title": "SOURCE CODE [💻]",
+              "rowId": `${prefix}sc`, 
+              "description": `Menampilkan Script Bot Botchel`
+            },
+            {
+              "title": "BIG THANKS TO [🏆]",
+              "rowId": `${prefix}tqto`, 
+              "description": `Menampilkan Thanks ${botname}`
+            },
+            {
+              "title": "RULES [📚]",
+              "rowId": `${prefix}rules`, 
+              "description": `Menampilkan Rules Pengguna Bot ${botname}`
+            }
+            ]
+            }],
+            listType: 1
+            }
+            Ryuu.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [sender]},quoted:troli})
+            break
 
 
 case 'sc':
@@ -2167,6 +2310,42 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 qute = fs.readFileSync('./media/Ryuu.jpg') 
 Ryuu.sendMessage(from, qute, image, { quoted: ftrol, caption: 'NIH LINKNYA: https://www49.zippyshare.com/d/bdwYjaXS/605790/%5bNekoPoi%5d_Akebi_no_Hana___Maho_-_01_%5b360P%5d_%5bnekopoi.pro%5d.mp4\n\nNOTE SIAPKAN TISU'})
                   break
+                                      // Random Text //
+                case 'quotes':
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotes?apikey=${lolkey}`)
+                    quotes = quotes.result
+                    author = quotes.by
+                    quotes = quotes.quote
+                    reply(`_${quotes}_\n\n*― ${author}*`)
+                    break
+                case 'quotesanime':
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${lolkey}`)
+                    quotes = quotes.result
+                    quote = quotes.quote
+                    char = quotes.character
+                    anime = quotes.anime
+                    episode = quotes.episode
+                    reply(`_${quote}_\n\n*― ${char}*\n*― ${anime} ${episode}*`)
+                    break
+                case 'quotesdilan':
+                    quotedilan = await fetchJson(`https://api.lolhuman.xyz/api/quotes/dilan?apikey=${lolkey}`)
+                    reply(quotedilan.result)
+                    break
+                case 'quotesimage':
+                    get_result = await getBuffer(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`)
+                    await Ryuu.sendMessage(from, get_result, image, { quotes: lol })
+                    break
+                case 'faktaunik':
+                case 'katabijak':
+                case 'pantun':
+                case 'bucin':
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`)
+                    reply(get_result.result)
+                    break
+                case 'randomnama':
+                    anu = await fetchJson(`https://api.lolhuman.xyz/api/random/nama?apikey=${lolkey}`)
+                    reply(anu.result)
+                    break
 //══════════[ Fitur Islam ]══════════//
 case 'listsurah':
 

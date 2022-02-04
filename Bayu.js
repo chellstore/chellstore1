@@ -2076,17 +2076,44 @@ ${tampilTanggal}`
 Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}payment`, buttonText: { displayText: 'PAYMENT 💸' }, type: 1 },{ buttonId: `${prefix}owner`, buttonText: { displayText: 'OWNER 👤' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
 break
 
-case 'pay':
 case 'payment':
+      case 'pay':
+       
+            stod = `${sender}`
+      stst = await Ryuu.getStatus(`${sender.split('@')[0]}@c.us`)
+	  stst = stst.status == 401 ? '' : stst.status
+            const modde = public ? 'PUBLIC': 'SELF'
+            listMsg = {
+            buttonText: 'MENU DISINI 💻',
+            footerText: fake,
+            description: `*Hai Kak* @${sender.split('@')[0]} ${jams}
 
-menu =
-`*${jams} @${sender.split('@')[0]}*
-Untuk payment silahkan klik tombol di bawah`
-teks =
-`Botchel 3.0.0 | Create By Fiannsaa
-${tampilTanggal}`
-Ryuu.sendMessage(from, { contentText: `${menu}`, footerText: `${teks}`, buttons: [{ buttonId: `${prefix}qris`, buttonText: { displayText: 'QRIS' }, type: 1 },{ buttonId: `${prefix}dana`, buttonText: { displayText: 'DANA' }, type: 1 },{ buttonId: `${prefix}gopay`, buttonText: { displayText: 'GOPAY' }, type: 1 } ], headerType: 'LOCATION', locationMessage: { degreesLatitude: '', degreesLongitude: '', jpegThumbnail: fakeimage, contextInfo: {mentionedJid: [sender]}}}, 'buttonsMessage')
-break
+𝙆𝙡𝙞𝙠 𝘽𝙪𝙩𝙩𝙤𝙣 𝘿𝙞 𝘽𝙖𝙬𝙖𝙝 𝙄𝙣𝙞 𝙐𝙣𝙩𝙪𝙠 𝙈𝙚𝙢𝙞𝙡𝙞𝙝 𝙋𝙖𝙮𝙢𝙚𝙣𝙩`, 
+            sections: [
+            {
+            "title": `Silahkan Dipilih Kak ${pushname} 🤗`,
+            rows: [
+            {
+              "title": "QRIS",
+              "rowId": `${prefix}qris`,
+              "description": `Menampilkan Seluruh Menu ${botname}`
+            },
+            {
+              "title": "DANA",
+              "rowId": `${prefix}dana`, 
+              "description": `Menampilkan Seluruh Store ${botname}`
+            },
+            {
+              "title": "GOPAY",
+              "rowId": `${prefix}gopay`, 
+              "description": `Menampilkan Seluruh Sound ${botname}`
+            }
+            ]
+            }],
+            listType: 1
+            }
+            Ryuu.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [sender]},quoted:troli})
+            break
 
 
 case 'sc':
