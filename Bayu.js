@@ -3596,6 +3596,7 @@ case 'spotify':
                     await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.info.song}.mp3`, quoted: lol })
                     break
 case 'ytmp3':
+if (!isGroup) return reply(mess.only.group)
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://www.youtube.com/watch?v=qZIQAk-BUEc`)
                     ini_link = args[0]
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkey}&url=${ini_link}`)
@@ -3608,7 +3609,7 @@ case 'ytmp3':
                     await Ryuu.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: lol })
                     break
 case 'ytmp4':
-
+if (!isGroup) return reply(mess.only.group)
             if (args.length < 1) return fakeyt('Link Nya Mana?')
             if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
             teks = args.join(' ')
