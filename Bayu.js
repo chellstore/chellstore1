@@ -3692,7 +3692,8 @@ if (!isGroup) return reply(mess.only.group)
                         }
                    break
                    
-case 'ytplay':
+case 'play':
+if (!isGroup) return reply(mess.only.group)
                     if (args.length == 0) return await reply(`Example: ${prefix + command} melukis senja`)
                     await fetchJson(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkey}&query=${args.join(" ")}`)
                         .then(async(result) => {
@@ -3709,7 +3710,7 @@ case 'ytplay':
                         })
                     break
 case 'ytsearch': case 'yts':
-
+if (!isGroup) return reply(mess.only.group)
 					if (args.length < 1) return reply('Tolong masukan query!')
 					var srch = args.join(' ');
 					try {
@@ -3733,7 +3734,7 @@ case 'ytsearch': case 'yts':
 		    		await Ryuu.sendMessage(from, tbuff, image, {quoted : mek, caption: ytresult})
 					break					
 					 case 'mediafire':
-					 
+					 if (!isGroup) return reply(mess.only.group)
 									if (args.length < 1) return reply('Masukkan link mediafire')
 									if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply('Linknya Error')
 									reply(mess.wait)
@@ -3754,7 +3755,7 @@ _Tunggu Proses Upload Media_`
               case 'google':
 case 'googlesearch':
 case 'ggs':
-
+if (!isGroup) return reply(mess.only.group)
 if (args.length < 1) return reply('Yang mau di cari apaan?')
 teks = args.join(' ')
 reply(mess.wait)
@@ -3769,7 +3770,7 @@ var akhir = kant.trim()
 reply(akhir)
 break
 case 'wiki':
-
+if (!isGroup) return reply(mess.only.group)
 if (args.length < 1) return reply(' Yang Mau Di Cari Apa? ')
 teks = args.join(' ')
 res = await wikiSearch(teks).catch(e => {
@@ -3842,7 +3843,7 @@ break
 										})
 									break
 									case 'tiktoknowm':   case 'tiktok':
-									
+									if (!isGroup) return reply(mess.only.group)
 									if (!q) return reply('Linknya?')
 									if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
 									reply(mess.wait)
