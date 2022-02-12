@@ -83,6 +83,7 @@ autobio = true
 public = true
 //══════════[ Data Base ]══════════//
 const _user = JSON.parse(fs.readFileSync('./database/user.json'))
+const scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/registered.json'))
 const _antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
 const _antivirtex = JSON.parse(fs.readFileSync('./database/antivirtex.json'))
@@ -188,6 +189,35 @@ Badmin: 'Bot Harus Jadi Admin Kalo Mau Menggunakan Fiturnya',
         const costum = (pesan, tipe, target, target2) => {
 			Ryuu.sendMessage(from, pesan, tipe, { quoted: { key: { fromMe: false, participant: `${target}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target2}` } } })
 		}
+		const addCmd = (id, command) => {
+    const obj = { id: id, chats: command }
+    scommand.push(obj)
+    fs.writeFileSync('./database/scommand.json', JSON.stringify(scommand))
+}
+
+const getCommandPosition = (id) => {
+    let position = null
+    Object.keys(scommand).forEach((i) => {
+        if (scommand[i].id === id) {
+            position = i
+        }
+    })
+    if (position !== null) {
+        return position
+    }
+}
+
+const getCmd = (id) => {
+    let position = null
+    Object.keys(scommand).forEach((i) => {
+        if (scommand[i].id === id) {
+            position = i
+        }
+    })
+    if (position !== null) {
+        return scommand[position].chats
+    }
+}
 		const addRegisterUser = (userid, sender, age, bio) => {
 	    const obj = { id: userid, name: sender, age: age, bio: bio }
 	    _user.push(obj)
@@ -3694,7 +3724,6 @@ if (!isGroup) return reply(mess.only.group)
                    break
                    
 case 'play':
-if (!isGroup) return reply(mess.only.group)
                     if (args.length == 0) return await reply(`Example: ${prefix + command} melukis senja`)
                     await fetchJson(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkey}&query=${args.join(" ")}`)
                         .then(async(result) => {
@@ -3782,6 +3811,26 @@ result = `*Judul :* ${res[0].judul}
 sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => {
   reply(result)
 })
+break
+case 'addcmd': 
+case 'setcmd':
+if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+if (isQuotedSticker) {
+if (!c) return reply(`Penggunaan : ${command} cmdnya dan tag stickernya`)
+var kodenya = mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
+addCmd(kodenya, c)
+reply("Done Bwang")
+} else {
+reply('tag stickenya')
+}
+break
+case 'delcmd':
+if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
+if (!isQuotedSticker) return reply(`Penggunaan : ${command} tagsticker`)
+var kodenya = mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
+scommand.splice(getCommandPosition(kodenya), 1)
+fs.writeFileSync('./database/scommand.json', JSON.stringify(scommand))
+reply("Done Bwang")
 break
                case 'bass': 
                
@@ -4323,10 +4372,7 @@ break
 //━━━━━━━━━━━━━━━[ AKHIR DARI SEMUA FITUR ]━━━━━━━━━━━━━━━━━//
 				
 default:
-if (body.startsWith(`${prefix}${command}`)) {
 
-                  reply(`Hai Kak ${pushname},  Command ${prefix}${command} Tidak Ada Di Dalam ${prefix}menu ${botname}`)
-			  }
 if(budy.includes("@verif", "@verify","daftar")){
 if (isUser) return reply('Kamu sudah terdaftar di dalam database')
 addRegisterUser(sender, pushname, bio_user)
